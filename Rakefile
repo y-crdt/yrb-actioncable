@@ -41,3 +41,7 @@ begin
 rescue LoadError
   # Ok
 end
+
+namespace :app do
+  task template: "app:app:template"
+end

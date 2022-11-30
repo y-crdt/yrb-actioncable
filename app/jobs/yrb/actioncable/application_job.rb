@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Yrb
+module Y
   module Actioncable
     class ApplicationJob < ActiveJob::Base
     end

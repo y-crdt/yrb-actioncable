@@ -2,10 +2,10 @@
 
 require "test_helper"
 
-module Yrb
+module Y
   class ActioncableTest < ActiveSupport::TestCase
     test "it has a version number" do
-      assert Yrb::Actioncable::VERSION
+      assert Y::Actioncable::VERSION
     end
   end
 end

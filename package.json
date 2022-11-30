@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "esbuild": "^0.15.16"
+  },
+  "scripts": {
+    "build": "esbuild spec/dummy/app/javascript/*.* --bundle --sourcemap --outdir=spec/dummy/app/assets/builds --public-path=assets"
+  },
+  "devDependencies": {
+    "@rails/actioncable": "^7.0.4"
+  }
+}

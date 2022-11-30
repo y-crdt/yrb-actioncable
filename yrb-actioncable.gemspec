@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/yrb/actioncable/version"
+require_relative "lib/y/actioncable/version"
 
 Gem::Specification.new do |spec|
   spec.name        = "yrb-actioncable"
-  spec.version     = Yrb::Actioncable::VERSION
+  spec.version     = Y::Actioncable::VERSION
   spec.authors     = ["Hannes Moser"]
   spec.email       = ["box@hannesmoser.at"]
   spec.homepage    = "https://github.com/y-crdt/yrb-actioncable"
@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/y-crdt/yrb-actioncable"
   spec.metadata["documentation_uri"] = "https://y-crdt.github.io/yrb-actioncable/"
 
-  spec.files = Dir["lib/**/*.rb"]
+  spec.files = Dir["{app,config,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", ">= 7.0.4"
   spec.add_development_dependency "rspec-rails"
