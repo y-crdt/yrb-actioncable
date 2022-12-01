@@ -1,51 +1,110 @@
 import {consumer} from "./channels/consumer";
 
 function compareId(prev, next) {
-    const [ts_prev, c_prev] = prev.split("-");
-    const [ts_next, c_next] = next.split("-");
+  const [ts_prev, c_prev] = prev.split("-").map(n => Number(n));
+  const [ts_next, c_next] = next.split("-").map(n => Number(n));
 
-    if (Number(ts_prev) > Number(ts_next)) {
-        return -1;
+  if (ts_prev > ts_next) {
+    return -1;
+  }
+
+  if (ts_prev < ts_next) {
+    return 1;
+  }
+
+  if (ts_prev === ts_next) {
+    if (c_prev > c_next) {
+      return -1;
     }
 
-    if (Number(ts_prev) < Number(ts_next)) {
-        return 1;
+    if (c_prev < c_next) {
+      return 1;
     }
+  }
 
-    if (Number(ts_prev) === Number(ts_next)) {
-        if (Number(c_prev) > Number(c_next)) {
-            return -1;
-        }
-
-        if (Number(c_prev) < Number(c_next)) {
-            return 1;
-        }
-    }
-
-    return 0;
+  return 0;
 }
 
-consumer.subscriptions.create({channel: "MessageChannel", id: "1"}, {
-    buffer: [],
+class ReliableSender {
+  #buffer
+  #clock
+  #channel
+  #id
+  #subscription
 
-    connected() {
-        this.intervalId = setInterval(() => {
-            const data = [0, 1, 2, 3];
-            this.buffer.push([0, 1, 2, 3])
-            this.perform("message", {data: [0, 1, 2, 3]});
-        }, 5000);
+  constructor(channel, id) {
+    this.channel = channel;
+    this.id = id;
+    this.clock = -1;
+    this.buffer = [];
 
-        this.lastAckId = null;
-    },
+    let that = this;
+    this.#subscription = consumer.subscriptions.create({channel, id}, {
+      received(data) {
+        const {clock, data, last_id} = data;
+        that.setClock(clock);
+        that.trim()
+      }
+    });
+  }
 
-    received(data) {
-        // todo: when we receive a message, we acknowledge the retrieval of the
-        // message.
-        this.lastAckId = data.last_id;
-        this.perform("ack_message", {last_id: this.lastAckId});
-    },
+  /**
+   * Try to send a new data packet to the server
+   * @param data
+   */
+  send(data) {
+    // store data in buffer with increased clock
+    this.buffer.push(new ReliableMessage(data, ++this.clock));
 
-    disconnected() {
-        clearInterval(this.intervalId);
+    // send message
+
+  }
+
+  ack(action, lastId) {
+    this.#subscription.perform(`ack_${action}`, {last_id: lastId})
+  }
+
+  received(data) {
+
+  }
+
+  /**
+   * Set clock to new tick if the new value is greater than the previous value
+   *
+   * @param tick
+   * @return void
+   */
+  setClock(tick) {
+    if (tick > this.clock) {
+      this.clock = tick;
     }
-});
+  }
+
+  /**
+   * Trim buffer by removing messages that are < current clock value
+   * @return @void
+   */
+  trim() {
+    // Find the (inclusive) index of up to where we know that transmission was
+    // successful (acknowledged by server).
+    const deleteUpTo = this.buffer.findIndex((message) => message.clock === this.clock);
+
+    // do nothing if we can't find an index that matches
+    if (deleteUpTo === -1) {
+      return;
+    }
+
+    // delete up to and including the index we found in the previous step
+    this.buffer.splice(0, deleteUpTo + 1);
+  }
+}
+
+class ReliableMessage {
+  constructor(data, clock) {
+    this.data = data;
+    this.clock = clock;
+  }
+}
+
+const sender = new ReliableSender("MessageChannel", "1");
+setInterval(() => sender.send([0, 1, 2, 3]), 5000);

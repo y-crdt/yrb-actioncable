@@ -469,13 +469,37 @@
   var consumer = createConsumer();
 
   // spec/dummy/app/javascript/application.js
+  var ReliableSender = class {
+    #buffer;
+    #clock;
+    #channel;
+    #id;
+    #subscription;
+    constructor(channel, id) {
+      this.channel = channel;
+      this.id = id;
+      this.clock = -1;
+      this.buffer = [];
+      let that = this;
+      consumer.subscriptions.create({ channel, id }, {
+        received(data) {
+        }
+      });
+    }
+  };
+  var sender = new ReliableSender("MessageChannel", "1");
+  setInterval(() => sender.send([0, 1, 2, 3]), 5e3);
   consumer.subscriptions.create({ channel: "MessageChannel", id: "1" }, {
+    clock: -1,
     buffer: [],
     connected() {
+      this.sender = new ReliableSender("MessageChannel", "1");
       this.intervalId = setInterval(() => {
         const data = [0, 1, 2, 3];
-        this.buffer.push([0, 1, 2, 3]);
-        this.perform("message", { data: [0, 1, 2, 3] });
+        this.buffer.push(data);
+        this.clock++;
+        const result = this.perform("message", { data, clock: this.clock });
+        console.log(result);
       }, 5e3);
       this.lastAckId = null;
     },
