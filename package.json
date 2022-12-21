@@ -1,11 +1,12 @@
 {
-  "dependencies": {
-    "esbuild": "^0.15.16"
-  },
-  "scripts": {
-    "build": "esbuild spec/dummy/app/javascript/*.* --bundle --sourcemap --outdir=spec/dummy/app/assets/builds --public-path=assets"
-  },
+  "name": "yrb",
+  "version": "1.0.0",
+  "private": true,
   "devDependencies": {
-    "@rails/actioncable": "^7.0.4"
-  }
+    "turbo": "^1.6.3"
+  },
+  "workspaces": [
+    "examples/*",
+    "packages/*"
+  ]
 }

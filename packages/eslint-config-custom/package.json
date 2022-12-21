@@ -1,0 +1,16 @@
+{
+  "name": "eslint-config-custom",
+  "version": "1.0.0",
+  "description": "eslint config",
+  "main": "index.js",
+  "repository": "https://github.com/eliias/isorun",
+  "author": "Hannes Moser <box@hannesmoser.at>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0"
+  }
+}

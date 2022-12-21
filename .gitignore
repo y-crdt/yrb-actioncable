@@ -14,3 +14,9 @@ Gemfile.lock
 # YARD docs
 doc/
 .yardoc
+
+# turbo
+.turbo
+
+# Node.js
+node_modules/

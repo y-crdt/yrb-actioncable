@@ -1,0 +1,10 @@
+{
+  "name": "tsconfig",
+  "version": "1.0.0",
+  "description": "TypeScript config",
+  "main": "base.json",
+  "repository": "https://github.com/eliias/isorun",
+  "author": "Hannes Moser <box@hannesmoser.at>",
+  "license": "MIT",
+  "private": true
+}
