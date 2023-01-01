@@ -10,7 +10,7 @@
     "@tiptap/extension-collaboration": "^2.0.0-beta.209",
     "@tiptap/extension-collaboration-cursor": "^2.0.0-beta.209",
     "@tiptap/starter-kit": "^2.0.0-beta.209",
-    "esbuild": "^0.16.10",
+    "esbuild": "^0.16.12",
     "eslint-config-custom": "*",
     "prosemirror-commands": "^1.5.0",
     "prosemirror-dropcursor": "^1.6.1",
