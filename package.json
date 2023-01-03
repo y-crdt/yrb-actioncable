@@ -6,7 +6,7 @@
     "turbo": "^1.6.3"
   },
   "scripts": {
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
+    "release": "turbo run build lint test && changeset version && changeset publish"
   },
   "workspaces": [
     "packages/*"
