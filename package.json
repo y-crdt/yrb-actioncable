@@ -5,8 +5,13 @@
   "devDependencies": {
     "turbo": "^1.6.3"
   },
+  "scripts": {
+    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
+  },
   "workspaces": [
-    "examples/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@changesets/cli": "^2.26.0"
+  }
 }
