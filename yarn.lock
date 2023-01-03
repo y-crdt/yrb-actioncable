@@ -1559,11 +1559,6 @@
     "@size-limit/esbuild" "8.1.0"
     "@size-limit/file" "8.1.0"
 
-"@types/actioncable@^5.2.7":
-  version "5.2.7"
-  resolved "https://registry.yarnpkg.com/@types/actioncable/-/actioncable-5.2.7.tgz#b42de922ba32f1a46c863df1ed32807ab08dda80"
-  integrity sha512-HVpCvvE4Att0vSfCVNHf3gmCoqQPlySWIhH4THkG4r0hc0IcvRa0gIVyd9ekswMf3WiBsDc52OKnduIZQ7qcRw==
-
 "@types/babel__core@^7.1.7":
   version "7.1.20"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.20.tgz#e168cdd612c92a2d335029ed62ac94c95b362359"
@@ -7712,10 +7707,10 @@ yargs@^17.1.1:
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
 
-yjs@^13.5.43:
-  version "13.5.43"
-  resolved "https://registry.yarnpkg.com/yjs/-/yjs-13.5.43.tgz#96f396d169142c4d0115fe9112913e8e2bded8ef"
-  integrity sha512-NJqWuiDOseYjkhnSVo55z+FZD6TsOJBZfMbH2I4OCm5vsgY7TESUjUGb7Pt1lljvvdSfBVj8CxQqZAnVxe5Iyg==
+yjs@^13.5.44:
+  version "13.5.44"
+  resolved "https://registry.yarnpkg.com/yjs/-/yjs-13.5.44.tgz#1c79ec7407963e07f44174cffcfde5b58a62b0da"
+  integrity sha512-UL+abIh2lQonqXfaJ+en7z9eGshpY11j1zNLc2kDYs0vrTjee4gZJUXC3ZsuhP6geQt0IRU04epCGRaVPQAVCA==
   dependencies:
     lib0 "^0.2.49"
 
