@@ -50,7 +50,7 @@
   ],
   "devDependencies": {
     "@rails/actioncable": "^7.0.4",
-    "@size-limit/preset-small-lib": "^8.1.0",
+    "@size-limit/preset-small-lib": "^8.1.1",
     "@types/actioncable": "^5.2.7",
     "@types/rails__actioncable": "^6.1.6",
     "eslint-config-custom": "*",
