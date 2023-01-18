@@ -1,0 +1,22 @@
+require:
+  - "rubocop-performance"
+  - "rubocop-rails"
+  - "rubocop-rspec"
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7
+
+RSpec/ExampleLength:
+  Max: 10
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes

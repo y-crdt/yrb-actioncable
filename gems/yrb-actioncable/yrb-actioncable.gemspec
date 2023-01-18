@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", ">= 7.0.4"
+  # spec.add_dependency "y-rb", ">= 0.4.1"
   spec.add_development_dependency "rspec-rails"
 
   spec.metadata["rubygems_mfa_required"] = "true"

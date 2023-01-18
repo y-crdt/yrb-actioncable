@@ -2,7 +2,7 @@
 
 module Y
   module Actioncable
-    module ReliableChannel # rubocop:disable Metrics/ModuleLength
+    module Reliable # rubocop:disable Metrics/ModuleLength
       extend ActiveSupport::Concern
 
       KEY_PREFIX = "reliable_stream"
@@ -11,7 +11,12 @@ module Y
       LAST_ID_FIELD = "last_id"
       CLOCK_FIELD = "clock"
 
-      private_constant :KEY_PREFIX, :STREAM_INACTIVE_TIMEOUT, :USER_INACTIVE_TIMEOUT, :LAST_ID_FIELD
+      private_constant(
+        :KEY_PREFIX,
+        :STREAM_INACTIVE_TIMEOUT,
+        :USER_INACTIVE_TIMEOUT,
+        :LAST_ID_FIELD
+      )
 
       included do
         unless method_defined? :current_user
@@ -174,7 +179,7 @@ module Y
         "#{ts}#{c}".to_i
       end
 
-      # Reverse the mapping done in ReliableChannel#map_entry_id_to_score
+      # Reverse the mapping done in Reliable#map_entry_id_to_score
       def map_score_to_entry_id(score)
         score = score.to_s
         c_padded, ts = score.slice!(-3..), score # rubocop:disable Style/ParallelAssignment
