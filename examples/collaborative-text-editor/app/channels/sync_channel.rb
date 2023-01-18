@@ -1,28 +1,40 @@
 # frozen_string_literal: true
 
 class SyncChannel < ApplicationCable::Channel
-  def subscribed
-    stream_for session
+  include Y::Actioncable::Sync
+
+  def initialize(connection, identifier, params = nil)
+    super
+
+    load { |id| load_doc(id) }
   end
 
-  def receive(data)
-    SyncChannel.broadcast_to(session, data)
+  def subscribed
+    stream_for(session, coder: ActiveSupport::JSON) do |message|
+      integrate(message)
+      persist { |id, doc| save_doc(id, doc) }
+    end
+
+    initiate
+  end
+
+  def receive(message)
+    sync_to(session, message)
   end
 
   private
 
-  Session = Struct.new(:path) do
-    def to_s
-      "sessions:#{path}"
-    end
-  end
-  private_constant :Session
-
   def session
-    Session.new(path)
+    @session ||= Session.new(params[:path])
   end
 
-  def path
-    params[:path]
+  def load_doc(id)
+    data = REDIS.get(id)
+    data = data.unpack("C*") unless data.nil?
+    data
+  end
+
+  def save_doc(id, state)
+    REDIS.set(id, state.pack("C*"))
   end
 end

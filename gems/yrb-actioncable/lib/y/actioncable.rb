@@ -2,7 +2,8 @@
 
 require "y/actioncable/config"
 require "y/actioncable/engine"
-require "y/actioncable/reliable_channel"
+require "y/actioncable/reliable"
+require "y/actioncable/sync"
 require "y/actioncable/version"
 
 module Y

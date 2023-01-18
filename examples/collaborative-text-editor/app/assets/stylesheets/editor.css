@@ -32,7 +32,7 @@
 /* Render the username above the caret */
 .collaboration-cursor__label {
     border-radius: 3px 3px 3px 0;
-    color: #0d0d0d;
+    color: #fff;
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
