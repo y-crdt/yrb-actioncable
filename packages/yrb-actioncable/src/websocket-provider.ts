@@ -37,7 +37,7 @@ type MessageHandler = (
   messageType: MessageType
 ) => void;
 
-export enum MessageType {
+enum MessageType {
   Sync = 0,
   Awareness = 1,
   Auth = 2,
