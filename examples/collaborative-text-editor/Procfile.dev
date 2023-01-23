@@ -1,4 +1,4 @@
 web: unset PORT && bin/rails server
-js: yarn build --watch
+js: yarn build:js --watch
 css: bin/rails tailwindcss:watch
 redis: redis-server

@@ -1,17 +1,33 @@
-import {Doc} from "yjs";
-import {publish, subscribe, unsubscribe} from "lib0/broadcastchannel";
+import { Doc } from 'yjs';
+import { publish, subscribe, unsubscribe } from 'lib0/broadcastchannel';
 import {
   Encoder,
   createEncoder,
   length as encodingLength,
   toUint8Array,
   writeVarUint,
-  writeVarUint8Array
-} from "lib0/encoding";
-import {Decoder, createDecoder, readVarUint, readVarUint8Array} from "lib0/decoding";
-import {messageYjsSyncStep2, readSyncMessage, writeSyncStep1, writeSyncStep2, writeUpdate} from "y-protocols/sync";
-import {Awareness, applyAwarenessUpdate, encodeAwarenessUpdate, removeAwarenessStates} from "y-protocols/awareness";
-import {readAuthMessage} from "y-protocols/auth";
+  writeVarUint8Array,
+} from 'lib0/encoding';
+import {
+  Decoder,
+  createDecoder,
+  readVarUint,
+  readVarUint8Array,
+} from 'lib0/decoding';
+import {
+  messageYjsSyncStep2,
+  readSyncMessage,
+  writeSyncStep1,
+  writeSyncStep2,
+  writeUpdate,
+} from 'y-protocols/sync';
+import {
+  Awareness,
+  applyAwarenessUpdate,
+  encodeAwarenessUpdate,
+  removeAwarenessStates,
+} from 'y-protocols/awareness';
+import { readAuthMessage } from 'y-protocols/auth';
 
 type MessageHandler = (
   encoder: Encoder,
@@ -102,7 +118,7 @@ export class WebsocketProvider {
     consumer: ActionCable.Cable,
     channel: string,
     params: Record<string, string>,
-    {awareness = new Awareness(doc), disableBc = false} = {}
+    { awareness = new Awareness(doc), disableBc = false } = {}
   ) {
     this.consumer = consumer;
     this.channelName = channel;
@@ -145,11 +161,7 @@ export class WebsocketProvider {
   };
 
   private unloadHandler = () => {
-    removeAwarenessStates(
-      this.awareness,
-      [this.doc.clientID],
-      'window unload'
-    );
+    removeAwarenessStates(this.awareness, [this.doc.clientID], 'window unload');
   };
 
   private awarenessUpdateHandler = (
@@ -194,7 +206,7 @@ export class WebsocketProvider {
 
   private send(buffer: Uint8Array) {
     const update = encodeBinaryToBase64(buffer);
-    this.channel?.send({update});
+    this.channel?.send({ update });
 
     if (this.bcconnected) {
       publish(this.channelName, buffer, this);
@@ -219,10 +231,10 @@ export class WebsocketProvider {
 
     this.synced = false;
     this.channel = this.consumer.subscriptions.create(
-      {channel: this.channelName, ...this.params},
+      { channel: this.channelName, ...this.params },
       {
-        received(message: {  update: string }) {
-          const {update: encodedUpdate} = message;
+        received(message: { update: string }) {
+          const { update: encodedUpdate } = message;
           const update = decodeBase64ToBinary(encodedUpdate);
           const encoder = provider.process(update, true);
           if (encodingLength(encoder) > 1) {
@@ -252,9 +264,7 @@ export class WebsocketProvider {
             writeVarUint(encoderAwarenessState, MessageType.Awareness);
             writeVarUint8Array(
               encoderAwarenessState,
-              encodeAwarenessUpdate(provider.awareness, [
-                provider.doc.clientID,
-              ])
+              encodeAwarenessUpdate(provider.awareness, [provider.doc.clientID])
             );
 
             provider.send(toUint8Array(encoderAwarenessState));
@@ -290,26 +300,16 @@ export class WebsocketProvider {
     // write queryAwareness
     const encoderAwarenessQuery = createEncoder();
     writeVarUint(encoderAwarenessQuery, MessageType.QueryAwareness);
-    publish(
-      this.channelName,
-      toUint8Array(encoderAwarenessQuery),
-      this
-    );
+    publish(this.channelName, toUint8Array(encoderAwarenessQuery), this);
 
     // broadcast local awareness state
     const encoderAwarenessState = createEncoder();
     writeVarUint(encoderAwarenessState, MessageType.Awareness);
     writeVarUint8Array(
       encoderAwarenessState,
-      encodeAwarenessUpdate(this.awareness, [
-        this.doc.clientID,
-      ])
+      encodeAwarenessUpdate(this.awareness, [this.doc.clientID])
     );
-    publish(
-      this.channelName,
-      toUint8Array(encoderAwarenessState),
-      this
-    );
+    publish(this.channelName, toUint8Array(encoderAwarenessState), this);
   }
 
   private disconnectBc() {
@@ -318,11 +318,7 @@ export class WebsocketProvider {
     writeVarUint(encoder, MessageType.Awareness);
     writeVarUint8Array(
       encoder,
-      encodeAwarenessUpdate(
-        this.awareness,
-        [this.doc.clientID],
-        new Map()
-      )
+      encodeAwarenessUpdate(this.awareness, [this.doc.clientID], new Map())
     );
     this.send(toUint8Array(encoder));
     if (this.bcconnected) {
@@ -348,7 +344,7 @@ export class WebsocketProvider {
 }
 
 function encodeBinaryToBase64(bin: Uint8Array) {
-  const chars = Array.from(bin, ch => String.fromCharCode(ch)).join("");
+  const chars = Array.from(bin, ch => String.fromCharCode(ch)).join('');
   return btoa(chars);
 }
 

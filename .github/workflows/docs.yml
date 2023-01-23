@@ -31,5 +31,5 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./doc
+          publish_dir: ./gems/yrb-actioncable/doc
           publish_branch: gh-pages
