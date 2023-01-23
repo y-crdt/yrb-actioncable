@@ -35,7 +35,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "yrb-actioncable",
+  "name": "@y-rb/actioncable",
   "author": "Hannes Moser",
   "module": "dist/yrb-actioncable.esm.js",
   "size-limit": [
