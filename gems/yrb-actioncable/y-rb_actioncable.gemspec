@@ -3,7 +3,7 @@
 require_relative "lib/y/actioncable/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "yrb-actioncable"
+  spec.name        = "y-rb_actioncable"
   spec.version     = Y::Actioncable::VERSION
   spec.authors     = ["Hannes Moser"]
   spec.email       = ["box@hannesmoser.at"]

@@ -7,7 +7,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "yrb-actioncable"
+gem "y-rb_actioncable"
 ```
 
 And then execute:
@@ -19,7 +19,7 @@ $ bundle
 Or install it yourself as:
 
 ```bash
-$ gem install yrb-actioncable
+$ gem install y-rb_actioncable
 ```
 
 ## License

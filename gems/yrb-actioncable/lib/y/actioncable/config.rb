@@ -9,7 +9,7 @@ module Y
   module Actioncable
     class MissingConfiguration < StandardError
       def initialize
-        super("Configuration for yrb-actioncable is missing. " \
+        super("Configuration for y-rb_actioncable is missing. " \
               "Do you have an initializer?")
       end
     end

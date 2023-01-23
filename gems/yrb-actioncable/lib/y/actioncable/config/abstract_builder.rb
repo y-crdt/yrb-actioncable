@@ -3,7 +3,7 @@
 module Y
   module Actioncable
     class Config
-      # Abstract base class for yrb-actioncable and it's extensions
+      # Abstract base class for y-rb_actioncable and it's extensions
       # configuration builder. Instantiates and validates gem configuration.
       class AbstractBuilder
         attr_reader :config
