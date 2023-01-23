@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email       = ["box@hannesmoser.at"]
   spec.homepage    = "https://github.com/y-crdt/yrb-actioncable"
   spec.summary     = "An ActionCable companion for Y.js clients."
-  spec.description = "Reliable message transmission between one or more Y.js clients."
+  spec.description = "An ActionCable companion for Y.js clients."
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
 
