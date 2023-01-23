@@ -4,7 +4,7 @@ import StarterKit from '@tiptap/starter-kit';
 import Collaboration from '@tiptap/extension-collaboration';
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor';
 import {Doc, applyUpdate} from "yjs";
-import {WebsocketProvider} from "yrb-actioncable";
+import {WebsocketProvider} from "@y-rb/actioncable";
 import {fromBase64} from "lib0/buffer";
 
 import consumer from "../channels/consumer";
