@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Y::Actioncable::Sync
+  
+    &mdash; Documentation by YARD 0.9.28
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Y::Actioncable::Sync";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Actioncable.html" title="Y::Actioncable (module)">Actioncable</a></span></span>
+     &raquo; 
+    <span class="title">Sync</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Y::Actioncable::Sync
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  <dl>
+      <dt>Extended by:</dt>
+      <dd>ActiveSupport::Concern</dd>
+  </dl>
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/y/actioncable/sync.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>rubocop:disable Metrics/ModuleLength</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#canonical_channel_key-instance_method" title="#canonical_channel_key (instance method)">#<strong>canonical_channel_key</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Produce a canonical key for this channel and its parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#doc-instance_method" title="#doc (instance method)">#<strong>doc</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initiate-instance_method" title="#initiate (instance method)">#<strong>initiate</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initiate synchronization.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#integrate-instance_method" title="#integrate (instance method)">#<strong>integrate</strong>(message, field: &quot;update&quot;)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This methods should be passed as a block to stream subscription, and not be put into a generic #receive method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load-instance_method" title="#load (instance method)">#<strong>load</strong>(&amp;block)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#persist-instance_method" title="#persist (instance method)">#<strong>persist</strong> {|canonical_channel_key, doc.diff| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sync_to-instance_method" title="#sync_to (instance method)">#<strong>sync_to</strong>(to, message, field: &quot;update&quot;)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="canonical_channel_key-instance_method">
+  
+    #<strong>canonical_channel_key</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Produce a canonical key for this channel and its parameters. This allows us to create unique documents for separate use cases. e.g. an Issue is the document scope, but has multiple fields that are synchronized, the title, description, labels, …</p>
+
+<p>By default, the key is the same as the channel identifier.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Create a new IssueChannel that sync updates for issue ID</p>
+</div></p>
+      
+      <pre class="example code"><code># issue_channel.rb
+class IssueChannel
+  include Y::Actionable::SyncChannel
+end
+
+# issue_subscription.js
+const params = { id: 1 }
+consumer.subscriptions.create(
+    {channel: &quot;IssueChannel&quot;, ...params}
+);
+
+# example for a resulting canonical key
+&quot;issue_channel:id:1&quot;</code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_canonical_channel_key'>canonical_channel_key</span>
+  <span class='ivar'>@canonical_channel_key</span> <span class='op'>||=</span> <span class='kw'>begin</span>
+    <span class='id identifier rubyid_pairs'>pairs</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse!'>parse!</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_params_part'>params_part</span> <span class='op'>=</span> <span class='id identifier rubyid_pairs'>pairs</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_parameterize'>parameterize</span><span class='embexpr_end'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_parameterize'>parameterize</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sync:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_params_part'>params_part</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="doc-instance_method">
+  
+    #<strong>doc</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_doc'>doc</span>
+  <span class='ivar'>@doc</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'>Doc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="initiate-instance_method">
+  
+    #<strong>initiate</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initiate synchronization. Encodes the current state_vector and transmits to the connecting client.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initiate'>initiate</span>
+  <span class='id identifier rubyid_encoder'>encoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create_encoder'><span class='object_link'><a href="../Lib0/Encoding.html#create_encoder-class_method" title="Y::Lib0::Encoding.create_encoder (method)">create_encoder</a></span></span>
+  <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_write_var_uint'><span class='object_link'><a href="../Lib0/Encoding.html#write_var_uint-class_method" title="Y::Lib0::Encoding.write_var_uint (method)">write_var_uint</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_encoder'>encoder</span><span class='comma'>,</span> <span class='const'>MESSAGE_SYNC</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Sync.html" title="Y::Sync (module)">Sync</a></span></span><span class='period'>.</span><span class='id identifier rubyid_write_sync_step1'><span class='object_link'><a href="../Sync.html#write_sync_step1-class_method" title="Y::Sync.write_sync_step1 (method)">write_sync_step1</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_encoder'>encoder</span><span class='comma'>,</span> <span class='id identifier rubyid_doc'>doc</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_to_uint8_array'><span class='object_link'><a href="../Lib0/Encoding.html#to_uint8_array-class_method" title="Y::Lib0::Encoding.to_uint8_array (method)">to_uint8_array</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_encoder'>encoder</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_encode_uint8_array_to_base64'><span class='object_link'><a href="../Lib0/Encoding.html#encode_uint8_array_to_base64-class_method" title="Y::Lib0::Encoding.encode_uint8_array_to_base64 (method)">encode_uint8_array_to_base64</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_update'>update</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_transmit'>transmit</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='label'>update:</span> <span class='id identifier rubyid_update'>update</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># TODO: implement awareness https://github.com/yjs/y-websocket/blob/master/bin/utils.js#L278-L284
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="integrate-instance_method">
+  
+    #<strong>integrate</strong>(message, field: &quot;update&quot;)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This methods should be passed as a block to stream subscription, and not be put into a generic #receive method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doc</span>
+      
+      
+        <span class='type'>(<tt>Y::Doc</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The encoded message must include a field named exactly like the field argument. The field value must be a Base64 binary.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>field</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;update&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The field that the encoded update should be extracted from.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_integrate'>integrate</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='label'>field:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>update</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_origin'>origin</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>origin</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Decoding.html" title="Y::Lib0::Decoding (module)">Decoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_decode_base64_to_uint8_array'><span class='object_link'><a href="../Lib0/Decoding.html#decode_base64_to_uint8_array-class_method" title="Y::Lib0::Decoding.decode_base64_to_uint8_array (method)">decode_base64_to_uint8_array</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>update</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_encoder'>encoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create_encoder'><span class='object_link'><a href="../Lib0/Encoding.html#create_encoder-class_method" title="Y::Lib0::Encoding.create_encoder (method)">create_encoder</a></span></span>
+  <span class='id identifier rubyid_decoder'>decoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Decoding.html" title="Y::Lib0::Decoding (module)">Decoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create_decoder'><span class='object_link'><a href="../Lib0/Decoding.html#create_decoder-class_method" title="Y::Lib0::Decoding.create_decoder (method)">create_decoder</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_update'>update</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_message_type'>message_type</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Decoding.html" title="Y::Lib0::Decoding (module)">Decoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_read_var_uint'><span class='object_link'><a href="../Lib0/Decoding.html#read_var_uint-class_method" title="Y::Lib0::Decoding.read_var_uint (method)">read_var_uint</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_message_type'>message_type</span>
+  <span class='kw'>when</span> <span class='const'>MESSAGE_SYNC</span>
+    <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_write_var_uint'><span class='object_link'><a href="../Lib0/Encoding.html#write_var_uint-class_method" title="Y::Lib0::Encoding.write_var_uint (method)">write_var_uint</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_encoder'>encoder</span><span class='comma'>,</span> <span class='const'>MESSAGE_SYNC</span><span class='rparen'>)</span>
+    <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Sync.html" title="Y::Sync (module)">Sync</a></span></span><span class='period'>.</span><span class='id identifier rubyid_read_sync_message'><span class='object_link'><a href="../Sync.html#read_sync_message-class_method" title="Y::Sync.read_sync_message (method)">read_sync_message</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='comma'>,</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='comma'>,</span> <span class='id identifier rubyid_doc'>doc</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+
+    <span class='comment'># If the `encoder` only contains the type of reply message and no
+</span>    <span class='comment'># message, there is no need to send the message. When `encoder` only
+</span>    <span class='comment'># contains the type of reply, its length is 1.
+</span>    <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_length'><span class='object_link'><a href="../Lib0/Encoding.html#length-class_method" title="Y::Lib0::Encoding.length (method)">length</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_encoder'>encoder</span><span class='rparen'>)</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+      <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_to_uint8_array'><span class='object_link'><a href="../Lib0/Encoding.html#to_uint8_array-class_method" title="Y::Lib0::Encoding.to_uint8_array (method)">to_uint8_array</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_encoder'>encoder</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Lib0/Encoding.html" title="Y::Lib0::Encoding (module)">Encoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_encode_uint8_array_to_base64'><span class='object_link'><a href="../Lib0/Encoding.html#encode_uint8_array_to_base64-class_method" title="Y::Lib0::Encoding.encode_uint8_array_to_base64 (method)">encode_uint8_array_to_base64</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_update'>update</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_transmit'>transmit</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='label'>update:</span> <span class='id identifier rubyid_update'>update</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='const'>MESSAGE_AWARENESS</span>
+    <span class='comment'># TODO: implement awareness https://github.com/yjs/y-websocket/blob/master/bin/utils.js#L179-L181
+</span>  <span class='kw'>end</span>
+
+  <span class='comment'># do not transmit message back to current connection if the connection
+</span>  <span class='comment'># is the origin of the message
+</span>  <span class='id identifier rubyid_transmit'>transmit</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_origin'>origin</span> <span class='op'>!=</span> <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_connection_identifier'>connection_identifier</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="load-instance_method">
+  
+    #<strong>load</strong>(&amp;block)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 108</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_full_diff'>full_diff</span> <span class='op'>=</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_canonical_channel_key'>canonical_channel_key</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_doc'>doc</span><span class='period'>.</span><span class='id identifier rubyid_sync'>sync</span><span class='lparen'>(</span><span class='id identifier rubyid_full_diff'>full_diff</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_full_diff'>full_diff</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="persist-instance_method">
+  
+    #<strong>persist</strong> {|canonical_channel_key, doc.diff| ... } &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="#canonical_channel_key-instance_method" title="Y::Actioncable::Sync#canonical_channel_key (method)">canonical_channel_key</a></span></tt>, <tt><span class='object_link'><a href="#doc-instance_method" title="Y::Actioncable::Sync#doc (method)">doc</a></span>.diff</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_persist'>persist</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_canonical_channel_key'>canonical_channel_key</span><span class='comma'>,</span> <span class='id identifier rubyid_doc'>doc</span><span class='period'>.</span><span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sync_to-instance_method">
+  
+    #<strong>sync_to</strong>(to, message, field: &quot;update&quot;)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sync_to'>sync_to</span><span class='lparen'>(</span><span class='id identifier rubyid_to'>to</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='label'>field:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>update</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>update</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+
+  <span class='comment'># we broadcast to all connected clients, but provide the
+</span>  <span class='comment'># connection_identifier as origin so that the [#integrate] method is
+</span>  <span class='comment'># able to filter sending back the update to its origin.
+</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_broadcast_to'>broadcast_to</span><span class='lparen'>(</span>
+    <span class='id identifier rubyid_to'>to</span><span class='comma'>,</span>
+    <span class='lbrace'>{</span> <span class='label'>update:</span> <span class='id identifier rubyid_update'>update</span><span class='comma'>,</span> <span class='label'>origin:</span> <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_connection_identifier'>connection_identifier</span> <span class='rbrace'>}</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jan 23 10:00:21 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
+</div>
+
+    </div>
+  </body>
+</html>

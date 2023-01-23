@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Y::Lib0::Binary
+  
+    &mdash; Documentation by YARD 0.9.28
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Y::Lib0::Binary";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (B)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Lib0.html" title="Y::Lib0 (module)">Lib0</a></span></span>
+     &raquo; 
+    <span class="title">Binary</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Y::Lib0::Binary
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/y/lib0/binary.rb</dd>
+  </dl>
+  
+</div>
+
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="BIT1-constant" class="">BIT1 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+        <dt id="BIT2-constant" class="">BIT2 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>2</span></pre></dd>
+      
+        <dt id="BIT3-constant" class="">BIT3 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>4</span></pre></dd>
+      
+        <dt id="BIT4-constant" class="">BIT4 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>8</span></pre></dd>
+      
+        <dt id="BIT5-constant" class="">BIT5 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>16</span></pre></dd>
+      
+        <dt id="BIT6-constant" class="">BIT6 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>32</span></pre></dd>
+      
+        <dt id="BIT7-constant" class="">BIT7 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>64</span></pre></dd>
+      
+        <dt id="BIT8-constant" class="">BIT8 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>128</span></pre></dd>
+      
+        <dt id="BIT9-constant" class="">BIT9 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>256</span></pre></dd>
+      
+        <dt id="BIT10-constant" class="">BIT10 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>512</span></pre></dd>
+      
+        <dt id="BIT11-constant" class="">BIT11 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1024</span></pre></dd>
+      
+        <dt id="BIT12-constant" class="">BIT12 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>2048</span></pre></dd>
+      
+        <dt id="BIT13-constant" class="">BIT13 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>4096</span></pre></dd>
+      
+        <dt id="BIT14-constant" class="">BIT14 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>8192</span></pre></dd>
+      
+        <dt id="BIT15-constant" class="">BIT15 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>16_384</span></pre></dd>
+      
+        <dt id="BIT16-constant" class="">BIT16 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>32_768</span></pre></dd>
+      
+        <dt id="BIT17-constant" class="">BIT17 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>65_536</span></pre></dd>
+      
+        <dt id="BIT18-constant" class="">BIT18 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>17</span></pre></dd>
+      
+        <dt id="BIT19-constant" class="">BIT19 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>18</span></pre></dd>
+      
+        <dt id="BIT20-constant" class="">BIT20 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>19</span></pre></dd>
+      
+        <dt id="BIT21-constant" class="">BIT21 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>20</span></pre></dd>
+      
+        <dt id="BIT22-constant" class="">BIT22 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>21</span></pre></dd>
+      
+        <dt id="BIT23-constant" class="">BIT23 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>22</span></pre></dd>
+      
+        <dt id="BIT24-constant" class="">BIT24 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>23</span></pre></dd>
+      
+        <dt id="BIT25-constant" class="">BIT25 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>24</span></pre></dd>
+      
+        <dt id="BIT26-constant" class="">BIT26 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>25</span></pre></dd>
+      
+        <dt id="BIT27-constant" class="">BIT27 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>26</span></pre></dd>
+      
+        <dt id="BIT28-constant" class="">BIT28 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>27</span></pre></dd>
+      
+        <dt id="BIT29-constant" class="">BIT29 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>28</span></pre></dd>
+      
+        <dt id="BIT30-constant" class="">BIT30 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>29</span></pre></dd>
+      
+        <dt id="BIT31-constant" class="">BIT31 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>30</span></pre></dd>
+      
+        <dt id="BIT32-constant" class="">BIT32 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span> <span class='op'>&lt;&lt;</span> <span class='int'>31</span></pre></dd>
+      
+        <dt id="BITS0-constant" class="">BITS0 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="BITS1-constant" class="">BITS1 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS2-constant" class="">BITS2 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>3</span></pre></dd>
+      
+        <dt id="BITS3-constant" class="">BITS3 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>7</span></pre></dd>
+      
+        <dt id="BITS4-constant" class="">BITS4 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>15</span></pre></dd>
+      
+        <dt id="BITS5-constant" class="">BITS5 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>31</span></pre></dd>
+      
+        <dt id="BITS6-constant" class="">BITS6 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>63</span></pre></dd>
+      
+        <dt id="BITS7-constant" class="">BITS7 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>127</span></pre></dd>
+      
+        <dt id="BITS8-constant" class="">BITS8 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>255</span></pre></dd>
+      
+        <dt id="BITS9-constant" class="">BITS9 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>511</span></pre></dd>
+      
+        <dt id="BITS10-constant" class="">BITS10 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1023</span></pre></dd>
+      
+        <dt id="BITS11-constant" class="">BITS11 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>2047</span></pre></dd>
+      
+        <dt id="BITS12-constant" class="">BITS12 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>4095</span></pre></dd>
+      
+        <dt id="BITS13-constant" class="">BITS13 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>8191</span></pre></dd>
+      
+        <dt id="BITS14-constant" class="">BITS14 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>16_383</span></pre></dd>
+      
+        <dt id="BITS15-constant" class="">BITS15 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>32_767</span></pre></dd>
+      
+        <dt id="BITS16-constant" class="">BITS16 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>65_535</span></pre></dd>
+      
+        <dt id="BITS17-constant" class="">BITS17 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT18-constant" title="Y::Lib0::Binary::BIT18 (constant)">BIT18</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS18-constant" class="">BITS18 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT19-constant" title="Y::Lib0::Binary::BIT19 (constant)">BIT19</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS19-constant" class="">BITS19 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT20-constant" title="Y::Lib0::Binary::BIT20 (constant)">BIT20</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS20-constant" class="">BITS20 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT21-constant" title="Y::Lib0::Binary::BIT21 (constant)">BIT21</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS21-constant" class="">BITS21 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT22-constant" title="Y::Lib0::Binary::BIT22 (constant)">BIT22</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS22-constant" class="">BITS22 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT23-constant" title="Y::Lib0::Binary::BIT23 (constant)">BIT23</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS23-constant" class="">BITS23 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT24-constant" title="Y::Lib0::Binary::BIT24 (constant)">BIT24</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS24-constant" class="">BITS24 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT25-constant" title="Y::Lib0::Binary::BIT25 (constant)">BIT25</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS25-constant" class="">BITS25 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT26-constant" title="Y::Lib0::Binary::BIT26 (constant)">BIT26</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS26-constant" class="">BITS26 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT27-constant" title="Y::Lib0::Binary::BIT27 (constant)">BIT27</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS27-constant" class="">BITS27 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT28-constant" title="Y::Lib0::Binary::BIT28 (constant)">BIT28</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS28-constant" class="">BITS28 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT29-constant" title="Y::Lib0::Binary::BIT29 (constant)">BIT29</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS29-constant" class="">BITS29 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT30-constant" title="Y::Lib0::Binary::BIT30 (constant)">BIT30</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS30-constant" class="">BITS30 =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="#BIT31-constant" title="Y::Lib0::Binary::BIT31 (constant)">BIT31</a></span></span> <span class='op'>-</span> <span class='int'>1</span></pre></dd>
+      
+        <dt id="BITS31-constant" class="">BITS31 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>0x7FFFFFFF</span></pre></dd>
+      
+        <dt id="BITS32-constant" class="">BITS32 =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>0xFFFFFFFF</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jan 23 10:00:21 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
+</div>
+
+    </div>
+  </body>
+</html>
