@@ -1,0 +1,10 @@
+{
+  "include": [
+    "app/javascript/*",
+    "app/javascript/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "extends": "tsconfig/base.json",
+}

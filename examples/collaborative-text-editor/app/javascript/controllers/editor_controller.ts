@@ -1,23 +1,26 @@
 import {Controller} from "@hotwired/stimulus";
-import {Editor} from '@tiptap/core';
-import StarterKit from '@tiptap/starter-kit';
-import Collaboration from '@tiptap/extension-collaboration';
-import CollaborationCursor from '@tiptap/extension-collaboration-cursor';
-import {Doc, applyUpdate} from "yjs";
+import {Editor} from "@tiptap/core";
+import {Collaboration} from "@tiptap/extension-collaboration";
+import {CollaborationCursor} from "@tiptap/extension-collaboration-cursor";
+import {StarterKit} from "@tiptap/starter-kit";
 import {WebsocketProvider} from "@y-rb/actioncable";
 import {fromBase64} from "lib0/buffer";
+import {applyUpdate, Doc} from "yjs";
 
-import consumer from "../channels/consumer";
+import {consumer} from "../channels";
 
-export default class extends Controller {
+export default class extends Controller<HTMLFormElement> {
   static values = {
     content: String
-  }
+  };
+
+  declare contentValue: string;
+  declare readonly hasCodeValue: boolean;
 
   connect() {
     const document = new Doc();
     // set initial state
-    if (typeof this.contentValue == "string" && this.contentValue.length > 0) {
+    if (this.contentValue.length > 0) {
       const initialState = fromBase64(this.contentValue);
       applyUpdate(document, initialState);
     }
@@ -51,10 +54,10 @@ export default class extends Controller {
 
   getRandomColor() {
     const colors = [
-      `#ff901f`,
-      `#ff2975`,
-      `#f222ff`,
-      `#8c1eff`,
+      "#ff901f",
+      "#ff2975",
+      "#f222ff",
+      "#8c1eff",
     ];
 
     const selectedIndex = Math.floor(Math.random() * (colors.length - 1));
