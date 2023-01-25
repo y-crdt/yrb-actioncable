@@ -21,8 +21,10 @@ yarn add yrb-actioncable --save
 ```typescript
 import {Doc} from "yjs";
 import {WebsocketProvider} from "yrb-actioncable";
+import {createConsumer} from "@rails/actioncable";
 
 const document = new Doc();
+const consumer = createConsumer();
 const provider = new WebsocketProvider(
   document,
   consumer,

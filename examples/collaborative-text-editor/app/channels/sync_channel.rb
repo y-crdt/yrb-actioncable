@@ -15,7 +15,7 @@ class SyncChannel < ApplicationCable::Channel
       integrate(message)
 
       # persist document
-      persist { |id, doc| save_doc(id, doc) }
+      persist { |id, update| save_doc(id, update) }
     end
 
     # negotiate initial state with client
