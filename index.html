@@ -80,6 +80,30 @@
 <pre class="code bash"><code class="bash">$ gem install y-rb_actioncable
 </code></pre>
 
+<h2 id="usage">Usage</h2>
+
+<p><code>yrb-actioncable</code> provides a module that can be used to extend the capabilities
+of a regular channel with a real-time sync mechanism. <code>yrb-actioncable</code>
+implements the same protocol as
+<a href="https://github.com/yjs/y-websocket/blob/master/bin/utils.js"><code>y-websocket</code></a>.</p>
+
+<p>It will make sure that a newly connected client will be provided with the
+current state and also syncs changes from the client to the server.</p>
+
+<pre class="code mermaid"><code class="mermaid">sequenceDiagram
+    Client-&gt;&gt;Server: Subscribe to channel
+    Server-&gt;&gt;Client: Successfully subscribed to channel
+
+    Server-&gt;&gt;Client: Send server-side document state-vector
+    Client-&gt;&gt;Server: Respond with update based on server-side state-vector
+
+    Client-&gt;&gt;Server: Send client-side document state-vector
+    Server-&gt;&gt;Client: Respond with update based on client-side state-vector
+
+    Client-&gt;&gt;Server: Send incremental updates from client
+    Server-&gt;&gt;Client: Send incremental updates from server (broadcast)
+</code></pre>
+
 <h2 id="license">License</h2>
 
 <p>The gem is available as <em>open source</em> under the terms of the
@@ -87,7 +111,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Wed Jan 25 09:23:07 2023 by
+  Generated on Wed Jan 25 09:43:14 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
