@@ -6,6 +6,7 @@ gemspec
 
 gem "puma"
 gem "redis"
+gem "rspec"
 gem "rubocop"
 gem "rubocop-performance"
 gem "rubocop-rails"

@@ -11,14 +11,19 @@ class SyncChannel < ApplicationCable::Channel
 
   def subscribed
     stream_for(session, coder: ActiveSupport::JSON) do |message|
+      # integrate updates in the y-rb document
       integrate(message)
+
+      # persist document
       persist { |id, doc| save_doc(id, doc) }
     end
 
+    # negotiate initial state with client
     initiate
   end
 
   def receive(message)
+    # broadcast update to all connected clients on all servers
     sync_to(session, message)
   end
 

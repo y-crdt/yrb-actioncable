@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.version     = Y::Actioncable::VERSION
   spec.authors     = ["Hannes Moser"]
   spec.email       = ["box@hannesmoser.at"]
-  spec.homepage    = "https://github.com/y-crdt/yrb-actioncable"
   spec.summary     = "An ActionCable companion for Y.js clients."
   spec.description = "An ActionCable companion for Y.js clients."
-  spec.license = "MIT"
+  spec.homepage    = "https://github.com/y-crdt/yrb-actioncable"
+  spec.license     = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
@@ -22,8 +22,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", ">= 7.0.4"
-  # spec.add_dependency "y-rb", ">= 0.4.1"
-  spec.add_development_dependency "rspec-rails"
+  spec.add_dependency "y-rb", ">= 0.4.3"
 
   spec.metadata["rubygems_mfa_required"] = "true"
 end
