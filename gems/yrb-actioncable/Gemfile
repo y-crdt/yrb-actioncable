@@ -5,6 +5,7 @@ source "https://rubygems.org"
 gemspec
 
 gem "puma"
+gem "redcarpet"
 gem "redis"
 gem "rspec"
 gem "rubocop"
