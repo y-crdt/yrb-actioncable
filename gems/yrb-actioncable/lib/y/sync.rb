@@ -31,7 +31,7 @@ module Y
 
     # @param [Y::Lib0::Decoding::Decoder] decoder
     # @param [Y::Doc] doc
-    # @param [Object] transaction_origin
+    # @param [Object, nil] transaction_origin
     # TODO: y-rb sync does not support transaction origins
     def self.read_sync_step2(decoder, doc, _transaction_origin)
       update = Y::Lib0::Decoding.read_var_uint8_array(decoder)
@@ -47,17 +47,17 @@ module Y
 
     # @param [Y::Lib0::Decoding::Decoder] decoder
     # @param [Y::Doc] doc
-    # @param [Object] transaction_origin
-    def self.read_update(decoder, doc, _transaction_origin)
-      read_sync_step2(decoder, doc, _transaction_origin)
+    # @param [Object, nil] transaction_origin
+    def self.read_update(decoder, doc, transaction_origin)
+      read_sync_step2(decoder, doc, transaction_origin)
     end
 
     # @param [Y::Lib0::Decoding::Decoder] decoder
     # @param [Y::Lib0::Encoding::Encoder] encoder
     # @param [Y::Doc] doc
-    # @param [Object] transaction_origin
+    # @param [Object, nil] transaction_origin
     # TODO: y-rb sync does not support transaction origins
-    def self.read_sync_message(decoder, encoder, doc, transaction_origin)
+    def self.read_sync_message(decoder, encoder, doc, transaction_origin) # rubocop:disable Metrics/MethodLength
       message_type = Y::Lib0::Decoding.read_var_uint(decoder)
 
       case message_type

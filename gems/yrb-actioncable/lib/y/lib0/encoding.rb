@@ -24,7 +24,7 @@ module Y
           size += encoder.bufs[i].size
           i += 1
         end
-        return size
+        size
       end
 
       def self.to_uint8_array(encoder) # rubocop:disable Metrics/MethodLength

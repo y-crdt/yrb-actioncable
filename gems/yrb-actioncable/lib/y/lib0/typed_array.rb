@@ -18,7 +18,7 @@ module Y
       #   Create a new TypedArray from a buffer and offset. The projected
       # @overload initialize(buffer, offset, size)
       def initialize(*args) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
-        if args.size.zero?
+        if args.empty?
           super()
         elsif args.size == 1 && args.first.is_a?(Numeric)
           super(args.first, 0)
@@ -27,7 +27,7 @@ module Y
         elsif args.size == 1 && args.first.is_a?(Enumerable)
           super(args.first.to_a)
         elsif args.size == 2 && args.first.is_a?(Enumerable) && args.last.is_a?(Numeric)
-          super(args.first.to_a[(args.last)..-1])
+          super(args.first.to_a[(args.last)..])
         elsif args.size == 3 && args.first.is_a?(Enumerable) && args[1].is_a?(Numeric) && args.last.is_a?(Numeric)
           super(args.first.to_a[args[1], args.last])
         else

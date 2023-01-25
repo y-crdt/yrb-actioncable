@@ -41,14 +41,10 @@ module Y
         while decoder.pos < size
           r = decoder.arr[decoder.pos]
           decoder.pos += 1
-          num = num + (r & Binary::BITS7) * mult
+          num += ((r & Binary::BITS7) * mult)
           mult *= 128 # next iteration, shift 7 "more" to the left
-          if r < Binary::BIT8
-            return num
-          end
-          if num > Integer::MAX
-            raise "integer out of range"
-          end
+          return num if r < Binary::BIT8
+          raise "integer out of range" if num > Integer::MAX
         end
         raise "unexpected end of array"
       end

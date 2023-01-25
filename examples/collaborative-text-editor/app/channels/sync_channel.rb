@@ -3,28 +3,18 @@
 class SyncChannel < ApplicationCable::Channel
   include Y::Actioncable::Sync
 
-  def initialize(connection, identifier, params = nil)
-    super
-
-    load { |id| load_doc(id) }
-  end
-
   def subscribed
-    stream_for(session, coder: ActiveSupport::JSON) do |message|
-      # integrate updates in the y-rb document
-      integrate(message)
-
-      # persist document
-      persist { |id, update| save_doc(id, update) }
-    end
-
-    # negotiate initial state with client
-    initiate
+    # initiate sync & subscribe to updates, with optional persistence mechanism
+    sync_for(session) { |id, update| save_doc(id, update) }
   end
 
   def receive(message)
     # broadcast update to all connected clients on all servers
     sync_to(session, message)
+  end
+
+  def doc
+    @doc ||= load { |id| load_doc(id) }
   end
 
   private
