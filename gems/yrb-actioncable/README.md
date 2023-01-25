@@ -60,13 +60,8 @@ class SyncChannel < ApplicationCable::Channel
   include Y::Actioncable::Sync
 
   def subscribed
-    stream_from("document-1", coder: ActiveSupport::JSON) do |message|
-      # integrate updates in the y-rb document
-      integrate(message)
-    end
-
-    # negotiate initial state with client
-    initiate
+    # initiate sync & subscribe to updates, with optional persistence mechanism
+    sync_from("document-1")
   end
 
   def receive(message)
