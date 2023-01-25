@@ -350,12 +350,12 @@
       <pre class="lines">
 
 
-56
-57
-58</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_decode_base64_to_uint8_array'>decode_base64_to_uint8_array</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span>
   <span class='const'>Base64</span><span class='period'>.</span><span class='id identifier rubyid_strict_decode64'>strict_decode64</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -453,11 +453,7 @@
 47
 48
 49
-50
-51
-52
-53
-54</pre>
+50</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 37</span>
@@ -469,14 +465,10 @@
   <span class='kw'>while</span> <span class='id identifier rubyid_decoder'>decoder</span><span class='period'>.</span><span class='id identifier rubyid_pos'>pos</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_size'>size</span>
     <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='id identifier rubyid_decoder'>decoder</span><span class='period'>.</span><span class='id identifier rubyid_arr'>arr</span><span class='lbracket'>[</span><span class='id identifier rubyid_decoder'>decoder</span><span class='period'>.</span><span class='id identifier rubyid_pos'>pos</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_decoder'>decoder</span><span class='period'>.</span><span class='id identifier rubyid_pos'>pos</span> <span class='op'>+=</span> <span class='int'>1</span>
-    <span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='id identifier rubyid_num'>num</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span> <span class='op'>&amp;</span> <span class='const'><span class='object_link'><a href="Binary.html" title="Y::Lib0::Binary (module)">Binary</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Binary.html#BITS7-constant" title="Y::Lib0::Binary::BITS7 (constant)">BITS7</a></span></span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_mult'>mult</span>
+    <span class='id identifier rubyid_num'>num</span> <span class='op'>+=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span> <span class='op'>&amp;</span> <span class='const'><span class='object_link'><a href="Binary.html" title="Y::Lib0::Binary (module)">Binary</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Binary.html#BITS7-constant" title="Y::Lib0::Binary::BITS7 (constant)">BITS7</a></span></span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_mult'>mult</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_mult'>mult</span> <span class='op'>*=</span> <span class='int'>128</span> <span class='comment'># next iteration, shift 7 &quot;more&quot; to the left
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_r'>r</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="Binary.html" title="Y::Lib0::Binary (module)">Binary</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Binary.html#BIT8-constant" title="Y::Lib0::Binary::BIT8 (constant)">BIT8</a></span></span>
-      <span class='kw'>return</span> <span class='id identifier rubyid_num'>num</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_num'>num</span> <span class='op'>&gt;</span> <span class='const'><span class='object_link'><a href="Integer.html" title="Y::Lib0::Integer (module)">Integer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Integer.html#MAX-constant" title="Y::Lib0::Integer::MAX (constant)">MAX</a></span></span>
-      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>integer out of range</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
+</span>    <span class='kw'>return</span> <span class='id identifier rubyid_num'>num</span> <span class='kw'>if</span> <span class='id identifier rubyid_r'>r</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="Binary.html" title="Y::Lib0::Binary (module)">Binary</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Binary.html#BIT8-constant" title="Y::Lib0::Binary::BIT8 (constant)">BIT8</a></span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>integer out of range</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_num'>num</span> <span class='op'>&gt;</span> <span class='const'><span class='object_link'><a href="Integer.html" title="Y::Lib0::Integer (module)">Integer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Integer.html#MAX-constant" title="Y::Lib0::Integer::MAX (constant)">MAX</a></span></span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unexpected end of array</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
@@ -520,7 +512,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 25 11:25:40 2023 by
+  Generated on Wed Jan 25 12:49:38 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>

@@ -123,7 +123,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#read_sync_step2-class_method" title="read_sync_step2 (class method)">.<strong>read_sync_step2</strong>(decoder, doc, transaction_origin)  &#x21d2; Object </a>
+      <a href="#read_sync_step2-class_method" title="read_sync_step2 (class method)">.<strong>read_sync_step2</strong>(decoder, doc, _transaction_origin)  &#x21d2; Object </a>
     
 
     
@@ -184,7 +184,7 @@
       <div class="method_details ">
   <h3 class="signature " id="read_sync_step2-class_method">
   
-    .<strong>read_sync_step2</strong>(decoder, doc, transaction_origin)  &#x21d2; <tt>Object</tt> 
+    .<strong>read_sync_step2</strong>(decoder, doc, _transaction_origin)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -204,7 +204,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/y/lib0/sync.rb', line 10</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_read_sync_step2'>read_sync_step2</span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='comma'>,</span> <span class='id identifier rubyid_doc'>doc</span><span class='comma'>,</span> <span class='id identifier rubyid_transaction_origin'>transaction_origin</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_read_sync_step2'>read_sync_step2</span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='comma'>,</span> <span class='id identifier rubyid_doc'>doc</span><span class='comma'>,</span> <span class='id identifier rubyid__transaction_origin'>_transaction_origin</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Decoding.html" title="Y::Lib0::Decoding (module)">Decoding</a></span></span><span class='period'>.</span><span class='id identifier rubyid_read_var_uint8_array'><span class='object_link'><a href="Decoding.html#read_var_uint8_array-class_method" title="Y::Lib0::Decoding.read_var_uint8_array (method)">read_var_uint8_array</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_doc'>doc</span><span class='period'>.</span><span class='id identifier rubyid_sync'>sync</span><span class='lparen'>(</span><span class='id identifier rubyid_update'>update</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -218,7 +218,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 25 11:25:40 2023 by
+  Generated on Wed Jan 25 12:49:38 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
