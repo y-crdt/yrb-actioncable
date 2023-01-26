@@ -440,16 +440,14 @@ consumer.subscriptions.create(
 203
 204
 205
-206
-207</pre>
+206</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_canonical_channel_key'>canonical_channel_key</span>
   <span class='ivar'>@canonical_channel_key</span> <span class='op'>||=</span> <span class='kw'>begin</span>
-    <span class='id identifier rubyid_pairs'>pairs</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse!'>parse!</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_params_part'>params_part</span> <span class='op'>=</span> <span class='id identifier rubyid_pairs'>pairs</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
+    <span class='id identifier rubyid_params_part'>params_part</span> <span class='op'>=</span> <span class='id identifier rubyid_channel_identifier'>channel_identifier</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
       <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_parameterize'>parameterize</span><span class='embexpr_end'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_parameterize'>parameterize</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
 
@@ -528,12 +526,12 @@ ActiveRecord model.</p>
       <pre class="lines">
 
 
+256
 257
-258
-259</pre>
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 257</span>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 256</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_doc'>doc</span>
   <span class='ivar'>@doc</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'>Doc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -832,15 +830,15 @@ a reference to the document.</p>
       <pre class="lines">
 
 
+217
 218
 219
 220
 221
-222
-223</pre>
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_full_diff'>full_diff</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -932,12 +930,12 @@ encoded state</p>
       <pre class="lines">
 
 
+232
 233
-234
-235</pre>
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 233</span>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 232</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_persist'>persist</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_canonical_channel_key'>canonical_channel_key</span><span class='comma'>,</span> <span class='id identifier rubyid_doc'>doc</span><span class='period'>.</span><span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span>
@@ -1400,7 +1398,7 @@ processes).</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 25 13:12:05 2023 by
+  Generated on Thu Jan 26 12:32:40 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
