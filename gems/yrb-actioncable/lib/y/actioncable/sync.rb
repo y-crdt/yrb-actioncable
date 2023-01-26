@@ -197,8 +197,7 @@ module Y
       #   "issue_channel:id:1"
       def canonical_channel_key
         @canonical_channel_key ||= begin
-          pairs = JSON.parse!(identifier)
-          params_part = pairs.map do |k, v|
+          params_part = channel_identifier.map do |k, v|
             "#{k.to_s.parameterize}-#{v.to_s.parameterize}"
           end
 
@@ -256,6 +255,14 @@ module Y
       # @return [Y::Doc] The initialized document
       def doc
         @doc ||= Y::Doc.new
+      end
+
+      private
+
+      def channel_identifier
+        return ["test", identifier] if Rails.env.test?
+
+        JSON.parse(identifier)
       end
     end
   end

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "spec_helper"
-
 ENV["RAILS_ENV"] ||= "test"
 
 require File.expand_path("./dummy/config/environment", __dir__)
@@ -14,4 +12,4 @@ require "rspec/rails"
 # autoload support files
 Dir[Rails.root / "spec" / "support" / "**" / "*.rb"].sort.each { |f| require f }
 
-RSpec.configure(&:filter_rails_from_backtrace!)
+require "spec_helper"

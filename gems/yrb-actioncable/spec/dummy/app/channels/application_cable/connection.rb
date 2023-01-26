@@ -7,7 +7,7 @@ module ApplicationCable
     private
 
     def current_user
-      User.find(1)
+      self.id = SecureRandom.uuid
     end
   end
 end

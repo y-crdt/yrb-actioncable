@@ -1,2 +1,4 @@
 doc/
 pkg/
+spec/dummy/log/
+spec/dummy/tmp/
