@@ -4,6 +4,8 @@ class SyncChannel < ApplicationCable::Channel
   include Y::Actioncable::Reliable
   include Y::Actioncable::Sync
 
+  # TODO: we can have a wide range of strategies to truncate message streams,
+  #   periodically flushing is just one option.
   periodically :truncate_message_stream, every: 5.seconds
 
   def subscribed
