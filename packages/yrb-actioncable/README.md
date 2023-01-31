@@ -7,20 +7,20 @@
 With npm:
 
 ```bash
-npm install yrb-actioncable
+npm install @y-rb/actioncable
 ```
 
 With yarn:
 
 ```bash
-yarn add yrb-actioncable --save
+yarn add @y-rb/actioncable --save
 ```
 
 ## Usage
 
 ```typescript
 import {Doc} from "yjs";
-import {WebsocketProvider} from "yrb-actioncable";
+import {WebsocketProvider} from "@y-rb/actioncable";
 import {createConsumer} from "@rails/actioncable";
 
 const document = new Doc();
