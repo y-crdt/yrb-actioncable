@@ -1,5 +1,11 @@
 # yrb-actioncable
 
+## 0.1.3
+
+### Patch Changes
+
+- Fix ESM export.
+
 ## 0.1.2
 
 ### Patch Changes
