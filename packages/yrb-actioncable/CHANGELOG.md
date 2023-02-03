@@ -1,5 +1,11 @@
 # yrb-actioncable
 
+## 0.1.5
+
+### Patch Changes
+
+- Revert replacement of lib0/broadcastchannel with custom implementation.
+
 ## 0.1.4
 
 ### Patch Changes
