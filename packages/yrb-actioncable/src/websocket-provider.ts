@@ -1,5 +1,4 @@
 import { Doc } from 'yjs';
-import { publish, subscribe, unsubscribe } from 'lib0/broadcastchannel';
 import {
   Encoder,
   createEncoder,
@@ -28,6 +27,8 @@ import {
   removeAwarenessStates,
 } from 'y-protocols/awareness';
 import { readAuthMessage } from 'y-protocols/auth';
+
+import { publish, subscribe, unsubscribe } from './broadcastchannel';
 
 type MessageHandler = (
   encoder: Encoder,
