@@ -87,7 +87,10 @@ module Y
 
         # do not transmit message back to current connection if the connection
         # is the origin of the message
-        transmit(message) if origin != connection.connection_identifier
+        connection_identifier = connection.connection_identifier
+        return if connection_identifier.present? && origin == connection_identifier
+
+        transmit(message)
       end
 
       # Sync for given model. This is a utility method that simplifies the setup
@@ -150,7 +153,7 @@ module Y
         # we broadcast to all connected clients, but provide the
         # connection_identifier as origin so that the [#integrate] method is
         # able to filter sending back the update to its origin.
-        self.class.broadcast(
+        ActionCable.server.broadcast(
           broadcasting,
           { update: update, origin: connection.connection_identifier }
         )
