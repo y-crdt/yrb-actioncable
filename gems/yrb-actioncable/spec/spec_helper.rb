@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "./helpers/redis"
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
@@ -14,4 +16,6 @@ RSpec.configure do |config|
   end
 
   config.filter_rails_from_backtrace!
+
+  config.include Helpers, redis: true
 end

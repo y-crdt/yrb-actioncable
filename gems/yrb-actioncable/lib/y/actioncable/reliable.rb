@@ -35,14 +35,14 @@ module Y
       # @param [Hash] message
       # @return [String] The entry ID
       def append(message)
-        adapter.xadd(reliable_channel_key, message)
+        adapter.append(reliable_channel_key, message)
       end
 
       # Truncate the message log up until the given offset
       #
       # @param [String] offset
       def truncate(offset)
-        adapter.xtrim(reliable_channel_key, offset, strategy: "MINID")
+        adapter.truncate(reliable_channel_key, offset)
 
         nil
       end
@@ -75,12 +75,12 @@ module Y
         @tracker ||= Y::Actioncable::Tracker.new(id, adapter: adapter)
       end
 
-      # @return [::Redis] The adapter used to track messages and client offsets
+      # @return [Y::Actioncable::Adapter::Redis, Y::Actioncable::Adapter::Test]
+      #   The adapter used to track messages and client offsets
       def adapter
-        @adapter ||= begin
-          redis_url = ENV.fetch("REDIS_URL", "redis://localhost:6379/1")
-          Redis.new(url: redis_url)
-        end
+        @adapter ||= Y::Actioncable.config.sync_adapter.new(
+          Y::Actioncable.config.sync
+        )
       end
     end
   end

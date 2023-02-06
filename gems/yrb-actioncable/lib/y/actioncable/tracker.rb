@@ -3,18 +3,17 @@
 module Y
   module Actioncable
     class Tracker
-
       TRACKER_KEY_PREFIX = "tracker"
       private_constant :TRACKER_KEY_PREFIX
 
       # @attr_reader [String] id
-      # @attr_reader [Redis] adapter
+      # @attr_reader [Y::Actioncable::Adapter::Redis, Y::Actioncable::Adapter::Test] adapter
       attr_reader :id, :adapter
 
       # Create new tracker
       #
       # @param [String] id
-      # @param [::Redis] adapter
+      # @param [Y::Actioncable::Adapter::Redis, Y::Actioncable::Adapter::Test] adapter
       def initialize(id, adapter:)
         @id = id
         @adapter = adapter
@@ -24,7 +23,7 @@ module Y
       #
       # @param [::ActionCable::Connection] connection
       def add(connection)
-        adapter.zadd(tracker_key, 0.to_f, connection.connection_identifier)
+        adapter.add(tracker_key, connection.connection_identifier)
 
         nil
       end
@@ -33,7 +32,7 @@ module Y
       #
       # @param [::ActionCable::Connection] connection
       def remove(connection)
-        adapter.zrem(tracker_key, connection.connection_identifier)
+        adapter.remove(tracker_key, connection.connection_identifier)
 
         nil
       end
@@ -43,12 +42,7 @@ module Y
       # @param [::ActionCable::Connection] connection
       # @param [Integer] offset
       def move(connection, offset)
-        adapter.zadd(
-          tracker_key,
-          offset.to_f,
-          connection.connection_identifier,
-          gt: true
-        )
+        adapter.move(tracker_key, connection.connection_identifier, offset)
 
         nil
       end
@@ -57,17 +51,7 @@ module Y
       #
       # @return [Integer]
       def min
-        result = adapter.zrangebyscore(
-          tracker_key,
-          "-inf",
-          "+inf",
-          with_scores: true,
-          limit: [0, 1]
-        )
-
-        return 0 unless result
-
-        result.first[1].to_i
+        adapter.min(tracker_key)
       end
 
       private
