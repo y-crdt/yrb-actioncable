@@ -526,12 +526,12 @@ ActiveRecord model.</p>
       <pre class="lines">
 
 
-259
 260
-261</pre>
+261
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 259</span>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 260</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_doc'>doc</span>
   <span class='ivar'>@doc</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'>Doc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -841,7 +841,8 @@ a reference to the document.</p>
 222
 223
 224
-225</pre>
+225
+226</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 220</span>
@@ -849,8 +850,9 @@ a reference to the document.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_full_diff'>full_diff</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='id identifier rubyid_full_diff'>full_diff</span> <span class='op'>=</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_canonical_channel_key'>canonical_channel_key</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span>
-  <span class='id identifier rubyid_doc'>doc</span><span class='period'>.</span><span class='id identifier rubyid_sync'>sync</span><span class='lparen'>(</span><span class='id identifier rubyid_full_diff'>full_diff</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_full_diff'>full_diff</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_doc'>doc</span>
+  <span class='ivar'>@doc</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../../Y.html" title="Y (module)">Y</a></span></span><span class='op'>::</span><span class='const'>Doc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@doc</span><span class='period'>.</span><span class='id identifier rubyid_sync'>sync</span><span class='lparen'>(</span><span class='id identifier rubyid_full_diff'>full_diff</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_full_diff'>full_diff</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='ivar'>@doc</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -936,12 +938,12 @@ encoded state</p>
       <pre class="lines">
 
 
-235
 236
-237</pre>
+237
+238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 235</span>
+      <pre class="code"><span class="info file"># File 'lib/y/actioncable/sync.rb', line 236</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_persist'>persist</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_canonical_channel_key'>canonical_channel_key</span><span class='comma'>,</span> <span class='id identifier rubyid_doc'>doc</span><span class='period'>.</span><span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span>
@@ -1404,7 +1406,7 @@ processes).</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Feb  6 08:04:42 2023 by
+  Generated on Mon Feb  6 08:49:14 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
