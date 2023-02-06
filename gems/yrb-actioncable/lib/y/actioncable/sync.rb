@@ -220,8 +220,9 @@ module Y
       def load(&block)
         full_diff = nil
         full_diff = yield(canonical_channel_key) if block
-        doc.sync(full_diff) unless full_diff.nil?
-        doc
+        @doc ||= Y::Doc.new
+        @doc.sync(full_diff) unless full_diff.nil?
+        @doc
       end
 
       # Persist the current document state to an external store.
