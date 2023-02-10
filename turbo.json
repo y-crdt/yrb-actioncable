@@ -4,6 +4,9 @@
     "build": {
       "outputs": ["dist/**"]
     },
+    "build:watch": {
+      "outputs": ["dist/**"]
+    },
     "lint": {
       "outputs": []
     },

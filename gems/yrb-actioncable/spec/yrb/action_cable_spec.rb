@@ -3,9 +3,9 @@
 # require "test_helper"
 #
 # module Y
-#   class ActioncableTest < ActiveSupport::TestCase
+#   class ActionCableTest < ActiveSupport::TestCase
 #     test "it has a version number" do
-#       assert Y::Actioncable::VERSION
+#       assert Y::ActionCable::VERSION
 #     end
 #   end
 # end

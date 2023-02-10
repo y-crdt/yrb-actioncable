@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Y
-  module Sync
+  module Protocol
     MESSAGE_YJS_SYNC_STEP_1 = 0
     MESSAGE_YJS_SYNC_STEP_2 = 1
     MESSAGE_YJS_UPDATE = 2
@@ -19,14 +19,16 @@ module Y
     # @param [Array<Integer>] encoded_state_vector
     def self.write_sync_step2(encoder, doc, encoded_state_vector)
       Y::Lib0::Encoding.write_var_uint(encoder, MESSAGE_YJS_SYNC_STEP_2)
-      Y::Lib0::Encoding.write_var_uint8_array(encoder, doc.diff(encoded_state_vector))
+      Y::Lib0::Encoding.write_var_uint8_array(encoder,
+                                              doc.diff(encoded_state_vector))
     end
 
     # @param [Y::Lib0::Decoding::Decoder] decoder
     # @param [Y::Lib0::Encoding::Encoder] encoder
     # @param [Y::Doc] doc
     def self.read_sync_step1(decoder, encoder, doc)
-      write_sync_step2(encoder, doc, Y::Lib0::Decoding.read_var_uint8_array(decoder))
+      write_sync_step2(encoder, doc,
+                       Y::Lib0::Decoding.read_var_uint8_array(decoder))
     end
 
     # @param [Y::Lib0::Decoding::Decoder] decoder

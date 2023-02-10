@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 module Y
-  module Actioncable
+  module ActionCable
     class Tracker
       TRACKER_KEY_PREFIX = "tracker"
       private_constant :TRACKER_KEY_PREFIX
 
       # @attr_reader [String] id
-      # @attr_reader [Y::Actioncable::Adapter::Redis, Y::Actioncable::Adapter::Test] adapter
+      # @attr_reader [Y::ActionCable::SyncAdapter::Base] adapter
       attr_reader :id, :adapter
 
       # Create new tracker
       #
       # @param [String] id
-      # @param [Y::Actioncable::Adapter::Redis, Y::Actioncable::Adapter::Test] adapter
+      # @param [Y::ActionCable::SyncAdapter::Base] adapter
       def initialize(id, adapter:)
         @id = id
         @adapter = adapter
@@ -37,6 +37,13 @@ module Y
         nil
       end
 
+      # Remove all connections except the ones provided via the except argument
+      def remove_all
+        adapter.remove_all(tracker_key)
+
+        nil
+      end
+
       # Move the offset of the given connection
       #
       # @param [::ActionCable::Connection] connection
@@ -56,6 +63,9 @@ module Y
 
       private
 
+      # Create a tracker key
+      #
+      # @return [String]
       def tracker_key
         "#{TRACKER_KEY_PREFIX}:#{id}"
       end

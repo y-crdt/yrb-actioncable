@@ -3,7 +3,7 @@ import {Editor} from "@tiptap/core";
 import {Collaboration} from "@tiptap/extension-collaboration";
 import {CollaborationCursor} from "@tiptap/extension-collaboration-cursor";
 import {StarterKit} from "@tiptap/starter-kit";
-import {WebsocketProvider} from "@y-rb/actioncable";
+import {ReliableWebsocketProvider} from "@y-rb/actioncable";
 import {fromBase64} from "lib0/buffer";
 import {applyUpdate, Doc} from "yjs";
 
@@ -25,11 +25,14 @@ export default class extends Controller<HTMLFormElement> {
       applyUpdate(document, initialState);
     }
 
-    const provider = new WebsocketProvider(
+    const defaultPath = "issues/1";
+    const path = new URLSearchParams(window.location.search).get("path") || defaultPath;
+
+    const provider = new ReliableWebsocketProvider(
       document,
       consumer,
       "SyncChannel",
-      {path: "issues/1"}
+      {path}
     );
 
     new Editor({

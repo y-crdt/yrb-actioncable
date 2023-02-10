@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Y::Actioncable::Adapter::Redis, redis: true do
+RSpec.describe Y::ActionCable::SyncAdapter::Redis, redis: true do
   let(:key) { "document-1" }
   let(:id) { "1" }
   let(:id2) { "2" }

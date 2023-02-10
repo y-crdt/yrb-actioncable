@@ -53,7 +53,9 @@ module Y
 
         return unless buffer_size - encoder.cpos < size
 
-        encoder.bufs << Buffer.create_uint8_array_view_from_buffer(encoder.cbuf, 0, encoder.cpos)
+        encoder.bufs << Buffer.create_uint8_array_view_from_buffer(
+          encoder.cbuf, 0, encoder.cpos
+        )
         encoder.cbuf = TypedArray.new([buffer_size, size].max * 2)
         encoder.cpos = 0
       end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Y
-  module Actioncable
+  module ActionCable
     class ApplicationRecord < ActiveRecord::Base
       self.abstract_class = true
     end

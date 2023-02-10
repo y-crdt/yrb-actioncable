@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Y::Actioncable::Adapter::Test do
+RSpec.describe Y::ActionCable::SyncAdapter::Test do
   let(:key) { "document-1" }
   let(:id) { "1" }
   let(:id2) { "2" }
