@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+set -uxe
+
+export BASE_DIR=$(realpath "$(pwd)/../../")
+
+docker-compose up

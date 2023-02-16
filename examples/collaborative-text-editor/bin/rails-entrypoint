@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+set -uxe
+
+bundle config set --local path "/bundled_gems"
+bundle install
+
+rm -f tmp/pids/server.pid
+bin/rails server

@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  rails:
+    image: ruby:3.2.0
+    working_dir: /work/examples/collaborative-text-editor
+    command: bin/rails-entrypoint
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_URL=redis://redis:6379/1
+    volumes:
+      - ${BASE_DIR}:/work
+      - bundled_gems:/bundled_gems
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:6.2-alpine
+    volumes:
+      - redis_data:/data
+    expose:
+      - 6379
+
+volumes:
+  bundled_gems:
+  redis_data:
