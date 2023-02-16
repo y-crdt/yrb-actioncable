@@ -1,4 +1,4 @@
 web: unset PORT && bin/rails server
 js: yarn build:js --watch
 css: bin/rails tailwindcss:watch
-redis: redis-server
+redis: docker run --rm --name redis -p 6379:6379 redis:7-alpine
