@@ -54,7 +54,7 @@ enum Op {
 
 type OpPayload =
   { op: Op.Ack, clock: number } |
-  { op: Op.Update, update: string, id: string }
+  { op: Op.Update, updates: string[], id: string }
 
 const permissionDeniedHandler = (
   provider: ReliableWebsocketProvider,
@@ -133,7 +133,7 @@ export class ReliableWebsocketProvider {
   bcconnected: boolean;
   private readonly disableBc: boolean;
   private _synced: boolean;
-  private retryInterval: Timer | undefined;
+  private retryInterval: NodeJS.Timer | number | undefined;
 
   constructor(
     doc: Doc,
@@ -292,13 +292,16 @@ export class ReliableWebsocketProvider {
             console.log(`buffer size=${provider.buffer.size}`, provider.buffer);
             break;
           case Op.Update:
-            const encodedUpdate = message.update;
-            const update = decodeBase64ToBinary(encodedUpdate);
-            const encoder = provider.process(update, true);
-            if (encodingLength(encoder) > 1) {
-              provider.send(toUint8Array(encoder));
-            }
-            this.perform(Op.Ack, {id: message.id});
+            // TODO: make sure to only create one encoder, integrate all updates
+            //  send one ack operation, including all IDs
+            message.updates.forEach((encodedUpdate) => {
+              const update = decodeBase64ToBinary(encodedUpdate);
+              const encoder = provider.process(update, true);
+              if (encodingLength(encoder) > 1) {
+                provider.send(toUint8Array(encoder));
+              }
+              this.perform(Op.Ack, {id: message.id});
+            });
             break;
           }
         },
