@@ -35,5 +35,9 @@
     "eslint-config-custom": "*",
     "tsconfig": "*",
     "typescript": "^4.9.4"
+  },
+  "engines": {
+    "node": ">= 18.14.1",
+    "yarn": ">= 1.22.19"
   }
 }

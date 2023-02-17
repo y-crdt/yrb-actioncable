@@ -128,6 +128,10 @@ The documentation for a gem is automatically generated and published every time
 a PR gets merged into `main`. You can find the documentation here:
 https://y-crdt.github.io/yrb-actioncable/
 
+The [sandbox environment](./examples/collaborative-text-editor) and running
+Redis specific specs in [./gems/yrb-actioncable](./gems/yrb-actioncable) require
+Redis. We use Docker to run the Redis server.
+
 ## Contributing
 
 Contributions are welcome. Be nice to people, and follow the following rules.
