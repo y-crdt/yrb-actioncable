@@ -8,19 +8,50 @@
 
 > An ActionCable companion for Y.js clients
 
-This is a monorepo with [npm modules](./packages) and [Ruby gems](./gems).
-Please check the respective sub-repos for more information. 
+TODO: Explain what this library does.
+
+## Components
+
+TODO: list sub-modules and link to their READMEs. The README should explain what
+each sub-component accomplishes, and how it cooperates with the other components.
+
+## Setup
+
+This is a monorepo built and laid out with [turborepo](https://turbo.build).
+The following dependencies need to exist in order to build this repository
+with `turbo` and run the sample application:
+
+- `Ruby`
+- `yarn`
+- `Node.js/npm`
+
+Refer to the respective configuration files to see which versions are required.
+The easiest option is to use `asdf` to install and manage these tools, but you
+may also refer to `/.tool-versions` and install these manually on your host machine.
+
+## Build
+
+Run the following commands from the top-level directory of this repository.
+
+Install `turbo`:
+
+```shell
+$ npm install turbo --global
+```
+
+Install JavaScript dependencies:
+
+```shell
+$ yarn
+```
+
+Build the repository:
+
+```shell
+$ turbo build
+```
 
 ## Usage
-
-Install gem and npm package:
-
-```
-gem install y-rb_actioncable
-yarn add @y-rb/actioncable
-```
-
-### Example
 
 Create a Rails channel that includes the Sync module:
 
@@ -137,7 +168,7 @@ Redis. We use Docker to run the Redis server.
 Contributions are welcome. Be nice to people, and follow the following rules.
 
 1. PRs must be rebased, no merge requests allowed (clean history).
-2. Commit messages must adhere to this [convention](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit). 
+2. Commit messages must adhere to this [convention](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit).
 
 ## License
 
