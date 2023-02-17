@@ -20,6 +20,8 @@ gem install y-rb_actioncable
 yarn add @y-rb/actioncable
 ```
 
+### Example
+
 Create a Rails channel that includes the Sync module:
 
 ```ruby
@@ -29,7 +31,7 @@ class SyncChannel < ApplicationCable::Channel
 
   def subscribed
     # initiate sync & subscribe to updates, with optional persistence mechanism
-    stream_for(session)
+    sync_for(session)
   end
 
   def receive(message)
@@ -39,7 +41,8 @@ class SyncChannel < ApplicationCable::Channel
 end
 ```
 
-Create a client and bind to an editor (tiptap) instance:
+Create a client and bind to an instance of the [tiptap](https://tiptap.dev/)
+editor:
 
 ```typescript
 import {WebsocketProvider} from "@y-rb/actioncable";
@@ -67,6 +70,70 @@ new Editor({
   ]
 });
 ```
+
+## Development
+
+Make sure you have Ruby and Node.js w/ yarn installed. We recommend to manage
+runtimes with [asdf](https://asdf-vm.com/).
+
+`yrb-actioncable` is a mix of Ruby and JavaScript repositories. The JavaScript
+repositories are manged with [turbo](https://turbo.build/repo).
+After you have successfully run `yarn` in the repository root, _turbo_ will be
+available and can be used to build packages.
+
+### JavaScript
+
+```bash
+yarn
+yarn lint:fix     # lint and autocorrect violations
+yarn turbo build  # build npm package
+```
+
+Releasing a new version of an npm module is easy. We use
+[changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
+to make it really simple:
+
+```bash
+# Add a new changeset
+changeset
+
+# Create new versions of packages
+changeset version
+
+# Commit and push to main
+# GitHub Action will automatically create a tag, a GitHub release entry, build
+# and publish the package to npmjs.com. The GitHub Action runs`yarn release`.
+```
+
+If you need to create a new package, please use [tsdx](https://tsdx.io/) for
+setup. It removes a lot of the setup pain, and creates correct builds for
+many targets (Node.js, ECMAScript Modules, AMD, …).
+
+### Ruby
+
+Ruby development is less automated. You **cannot** use `turbo` commands to build
+the `gem`, isntead you need to manually build and release Ruby gems. All gems
+in the `./gems` directory where created using the standard method described on
+[rubygems.org](https://guides.rubygems.org/make-your-own-gem/).
+
+```
+cd gems/yrb-actioncable
+bundle
+rake spec
+rake build                                    # y-rb_actioncable 0.1.5 built to pkg/y-rb_actioncable-0.1.5.gem
+cd pkg && gem push y-rb_actioncable-0.1.5.gem # release new version on rubygems.org
+```
+
+The documentation for a gem is automatically generated and published every time
+a PR gets merged into `main`. You can find the documentation here:
+https://y-crdt.github.io/yrb-actioncable/
+
+## Contributing
+
+Contributions are welcome. Be nice to people, and follow the following rules.
+
+1. PRs must be rebased, no merge requests allowed (clean history).
+2. Commit messages must adhere to this [convention](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit). 
 
 ## License
 
