@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker run \
+    --rm \
+    --name yrb-actioncable--redis \
+    -p 6379:6379 \
+    -v "$(pwd)/tmp/redis/data:/data" \
+    redis:7-alpine redis-server --save 5 1 --loglevel warning
