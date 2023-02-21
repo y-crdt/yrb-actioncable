@@ -8,8 +8,16 @@
 
 > An ActionCable companion for Y.js clients
 
-This is a monorepo with [npm modules](./packages) and [Ruby gems](./gems).
-Please check the respective sub-repos for more information. 
+This project provides you with the necessary JavaScript and Ruby dependencies to
+set up a reliable WebSocket connection between many
+[Y.js](https://github.com/yjs/yjs) clients and a Ruby on Rails server, using
+standard Rails [ActionCable](https://guides.rubyonrails.org/action_cable_overview.html)
+[channels](https://guides.rubyonrails.org/action_cable_overview.html#terminology-channels).
+
+The project is organized as a monorepo with [npm modules](./packages) and
+[Ruby gems](./gems). Please check the respective sub-repos and
+[documentation](https://y-crdt.github.io/yrb-actioncable/) for detailed
+information. 
 
 ## Usage
 
@@ -136,8 +144,8 @@ Redis. We use Docker to run the Redis server.
 
 Contributions are welcome. Be nice to people, and follow the following rules.
 
-1. PRs must be rebased, no merge requests allowed (clean history).
-2. Commit messages must adhere to this [convention](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit). 
+1. PRs must be rebased, no merge requests allowed (clean history)
+2. Commit messages must adhere to this [convention](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit)
 
 ## License
 
