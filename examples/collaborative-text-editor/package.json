@@ -21,7 +21,7 @@
     "prosemirror-model": "^1.18.3",
     "prosemirror-schema-list": "^1.2.2",
     "prosemirror-state": "^1.4.2",
-    "prosemirror-transform": "^1.7.0",
+    "prosemirror-transform": "^1.7.1",
     "prosemirror-view": "^1.29.1",
     "y-prosemirror": "^1.2.0",
     "yjs": "^13.5.43"
