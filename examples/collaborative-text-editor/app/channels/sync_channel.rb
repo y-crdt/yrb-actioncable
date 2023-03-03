@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
 class SyncChannel < ApplicationCable::Channel
-  include Y::Actioncable::Sync
+  include Y::ActionCable::Sync
+  include Y::ActionCable::Sync::Reliable
 
   def subscribed
     # initiate sync & subscribe to updates, with optional persistence mechanism
     sync_for(session) { |id, update| save_doc(id, update) }
   end
 
-  def receive(message)
-    # broadcast update to all connected clients on all servers
+  def update(message)
+    # sync with all clients
     sync_to(session, message)
   end
 

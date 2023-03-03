@@ -57,7 +57,7 @@ In order to use the above described protocol, someone can simply include the
 ```ruby
 # app/channels/sync_channel.rb
 class SyncChannel < ApplicationCable::Channel
-  include Y::Actioncable::Sync
+  include Y::ActionCable::Sync
 
   def subscribed
     # initiate sync & subscribe to updates, with optional persistence mechanism
@@ -87,9 +87,10 @@ the `load` method to be called with a block that returns a full state update for
 the document. Internally it just calls `Y::Doc#sync(update)`.
 
 ```ruby
+
 class SyncChannel < ApplicationCable::Channel
-  include Y::Actioncable::Sync
-  
+  include Y::ActionCable::Sync
+
   def initialize(connection, identifier, params = nil)
     super
     load { |id| load_doc(id) }
@@ -106,7 +107,7 @@ given ID.
 ```ruby
 
 class SyncChannel < ApplicationCable::Channel
-  include Y::Actioncable::Sync
+  include Y::ActionCable::Sync
 
   def subscribed
     stream_for(session, coder: ActiveSupport::JSON) do |_message|

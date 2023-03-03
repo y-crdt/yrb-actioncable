@@ -12,14 +12,15 @@
     "yarn": ">= 1.22.19"
   },
   "scripts": {
-    "start": "tsdx watch",
+    "analyze": "size-limit --why",
     "build": "tsdx build",
-    "test": "tsdx test",
+    "build:watch": "tsdx watch",
     "lint": "tsdx lint",
     "lint:fix": "tsdx lint --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "start": "tsdx watch",
+    "test": "tsdx test"
   },
   "peerDependencies": {},
   "publishConfig": {

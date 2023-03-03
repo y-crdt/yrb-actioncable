@@ -27,7 +27,8 @@ module Y
       end
 
       def self.read_uint8_array(decoder, size)
-        view = Buffer.create_uint8_array_view_from_buffer(decoder.arr, decoder.pos + 0, size)
+        view = Buffer.create_uint8_array_view_from_buffer(decoder.arr,
+                                                          decoder.pos + 0, size)
       end
 
       def self.read_var_uint8_array(decoder)

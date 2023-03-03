@@ -35,7 +35,7 @@ Create a Rails channel that includes the Sync module:
 ```ruby
 # app/channels/sync_channel.rb
 class SyncChannel < ApplicationCable::Channel
-  include Y::Actioncable::Sync
+  include Y::ActionCable::Sync
 
   def subscribed
     # initiate sync & subscribe to updates, with optional persistence mechanism

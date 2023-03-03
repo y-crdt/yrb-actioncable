@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SyncChannel < ApplicationCable::Channel
-  include Y::Actioncable::Sync
+  include Y::ActionCable::Sync
 
   def subscribed
     sync_for(session)
