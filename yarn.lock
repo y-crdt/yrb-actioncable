@@ -1671,10 +1671,10 @@
     "@size-limit/esbuild" "8.1.2"
     "@size-limit/file" "8.1.2"
 
-"@tiptap/core@^2.0.0-beta.209":
-  version "2.0.0-beta.209"
-  resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.0.0-beta.209.tgz#fd0edb8f87a5eea70c6a11e0d7e628738a10ef3f"
-  integrity sha512-DOOzfo2XKD5Qt2oEGW33/6ugwSnvpl4WbxtlKdPadLoApk6Kja3K1Eps3pihBgIGmo4tkctkCzmj8wNWS7KeWg==
+"@tiptap/core@^2.0.0-beta.209", "@tiptap/core@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.0.1.tgz#1576e5acb2ea1e5923c2834e6d7876258ed244b7"
+  integrity sha512-IY5K17e1YdlJIykCt3NuOyqK/SHyGwk2X7eyLYfZJGJwqzuPuf3y8X1zZQQN53t5UVfsgqsF9RweVEee40o1Aw==
 
 "@tiptap/extension-blockquote@^2.0.0-beta.209":
   version "2.0.0-beta.209"
