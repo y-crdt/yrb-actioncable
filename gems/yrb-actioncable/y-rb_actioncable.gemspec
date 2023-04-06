@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/y-crdt/yrb-actioncable"
   spec.metadata["documentation_uri"] = "https://y-crdt.github.io/yrb-actioncable/"
 
-  spec.files = Dir["{app,config,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+  spec.files = Dir["{lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", ">= 7.0.4"
   spec.add_dependency "y-rb", ">= 0.4.5"
