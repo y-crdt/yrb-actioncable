@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "turbo": "^1.7.4"
+    "turbo": "^1.9.3"
   },
   "scripts": {
     "release": "turbo run build lint test && changeset version && changeset publish"
