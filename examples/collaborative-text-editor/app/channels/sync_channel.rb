@@ -20,7 +20,7 @@ class SyncChannel < ApplicationCable::Channel
   private
 
   def session
-    @session ||= Session.new(params[:path])
+    @session ||= Session.new(params[:id])
   end
 
   def load_doc(id)

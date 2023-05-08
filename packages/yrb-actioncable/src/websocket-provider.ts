@@ -109,6 +109,7 @@ export class WebsocketProvider {
   readonly params: Record<string, string>;
   readonly doc: Doc;
   readonly channelName: string;
+  readonly bcChannelName: string;
   readonly awareness: Awareness;
   bcconnected: boolean;
   private readonly disableBc: boolean;
@@ -123,6 +124,9 @@ export class WebsocketProvider {
   ) {
     this.consumer = consumer;
     this.channelName = channel;
+    this.bcChannelName = `${channel}_${Object.entries(params)
+      .map((k, v) => `${k}-${v}`)
+      .join('_')}`;
     this.params = params;
     this.doc = doc;
     this.awareness = awareness;
@@ -147,7 +151,7 @@ export class WebsocketProvider {
     if (origin !== this) {
       const encoder = this.process(new Uint8Array(data), false);
       if (encodingLength(encoder) > 1) {
-        publish(this.channelName, toUint8Array(encoder), this);
+        publish(this.bcChannelName, toUint8Array(encoder), this);
       }
     }
   };
@@ -210,7 +214,7 @@ export class WebsocketProvider {
     this.channel?.send({ update });
 
     if (this.bcconnected) {
-      publish(this.channelName, buffer, this);
+      publish(this.bcChannelName, buffer, this);
     }
   }
 
@@ -281,7 +285,7 @@ export class WebsocketProvider {
     }
 
     if (!this.bcconnected) {
-      subscribe(this.channelName, this.bcSubscriber);
+      subscribe(this.bcChannelName, this.bcSubscriber);
       this.bcconnected = true;
     }
 
@@ -290,18 +294,18 @@ export class WebsocketProvider {
     const encoderSync = createEncoder();
     writeVarUint(encoderSync, MessageType.Sync);
     writeSyncStep1(encoderSync, this.doc);
-    publish(this.channelName, toUint8Array(encoderSync), this);
+    publish(this.bcChannelName, toUint8Array(encoderSync), this);
 
     // broadcast local state
     const encoderState = createEncoder();
     writeVarUint(encoderState, MessageType.Sync);
     writeSyncStep2(encoderState, this.doc);
-    publish(this.channelName, toUint8Array(encoderState), this);
+    publish(this.bcChannelName, toUint8Array(encoderState), this);
 
     // write queryAwareness
     const encoderAwarenessQuery = createEncoder();
     writeVarUint(encoderAwarenessQuery, MessageType.QueryAwareness);
-    publish(this.channelName, toUint8Array(encoderAwarenessQuery), this);
+    publish(this.bcChannelName, toUint8Array(encoderAwarenessQuery), this);
 
     // broadcast local awareness state
     const encoderAwarenessState = createEncoder();
@@ -310,7 +314,7 @@ export class WebsocketProvider {
       encoderAwarenessState,
       encodeAwarenessUpdate(this.awareness, [this.doc.clientID])
     );
-    publish(this.channelName, toUint8Array(encoderAwarenessState), this);
+    publish(this.bcChannelName, toUint8Array(encoderAwarenessState), this);
   }
 
   private disconnectBc() {
@@ -323,7 +327,7 @@ export class WebsocketProvider {
     );
     this.send(toUint8Array(encoder));
     if (this.bcconnected) {
-      unsubscribe(this.channelName, this.bcSubscriber);
+      unsubscribe(this.bcChannelName, this.bcSubscriber);
       this.bcconnected = false;
     }
   }

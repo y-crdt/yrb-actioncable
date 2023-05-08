@@ -1,13 +1,13 @@
-import {Controller} from "@hotwired/stimulus";
-import {Editor} from "@tiptap/core";
-import {Collaboration} from "@tiptap/extension-collaboration";
-import {CollaborationCursor} from "@tiptap/extension-collaboration-cursor";
-import {StarterKit} from "@tiptap/starter-kit";
-import {WebsocketProvider} from "@y-rb/actioncable";
-import {fromBase64} from "lib0/buffer";
-import {applyUpdate, Doc} from "yjs";
+import { Controller } from "@hotwired/stimulus";
+import { Editor } from "@tiptap/core";
+import { Collaboration } from "@tiptap/extension-collaboration";
+import { CollaborationCursor } from "@tiptap/extension-collaboration-cursor";
+import { StarterKit } from "@tiptap/starter-kit";
+import { WebsocketProvider } from "@y-rb/actioncable";
+import { fromBase64 } from "lib0/buffer";
+import { applyUpdate, Doc } from "yjs";
 
-import {consumer} from "../channels";
+import { consumer } from "../channels";
 
 export default class extends Controller<HTMLFormElement> {
   static values = {
@@ -25,11 +25,19 @@ export default class extends Controller<HTMLFormElement> {
       applyUpdate(document, initialState);
     }
 
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    if (id == null) {
+      return alert("Provide an `?id=doc-id` query param.");
+    }
+
     const provider = new WebsocketProvider(
       document,
       consumer,
       "SyncChannel",
-      {path: "issues/1"}
+      {
+        id
+      }
     );
 
     new Editor({
@@ -48,17 +56,12 @@ export default class extends Controller<HTMLFormElement> {
             color: this.getRandomColor()
           }
         })
-      ],
+      ]
     });
   }
 
   getRandomColor() {
-    const colors = [
-      "#ff901f",
-      "#ff2975",
-      "#f222ff",
-      "#8c1eff",
-    ];
+    const colors = ["#ff901f", "#ff2975", "#f222ff", "#8c1eff"];
 
     const selectedIndex = Math.floor(Math.random() * (colors.length - 1));
     return colors[selectedIndex];
