@@ -1,5 +1,11 @@
 # yrb-actioncable
 
+## 0.2.1
+
+### Patch Changes
+
+- Allow Node.js versions >=16
+
 ## 0.2.0
 
 ### Minor Changes
