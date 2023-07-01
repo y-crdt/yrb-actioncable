@@ -61,7 +61,7 @@
     "@types/rails__actioncable": "^6.1.6",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
-    "size-limit": "^8.1.0",
+    "size-limit": "^8.2.6",
     "tsconfig": "*",
     "tsdx": "^0.14.1",
     "tslib": "^2.5.0",
