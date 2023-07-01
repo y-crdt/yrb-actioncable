@@ -12,7 +12,7 @@
     "@tiptap/pm": "^2.0.3",
     "@tiptap/starter-kit": "^2.0.2",
     "@y-rb/actioncable": "*",
-    "esbuild": "^0.17.10",
+    "esbuild": "^0.18.11",
     "lib0": "^0.2.58",
     "prosemirror-commands": "^1.5.2",
     "prosemirror-dropcursor": "^1.8.1",
