@@ -52,7 +52,7 @@
   "dependencies": {
     "lib0": "^0.2.58",
     "y-protocols": "^1.0.5",
-    "yjs": "^13.5.51"
+    "yjs": "^13.6.6"
   },
   "devDependencies": {
     "@rails/actioncable": "^7.0.4-3",
