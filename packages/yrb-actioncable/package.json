@@ -51,7 +51,7 @@
   ],
   "dependencies": {
     "lib0": "^0.2.58",
-    "y-protocols": "^1.0.5",
+    "y-protocols": "^1.0.6",
     "yjs": "^13.6.7"
   },
   "devDependencies": {
