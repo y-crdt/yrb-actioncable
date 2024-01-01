@@ -57,7 +57,7 @@
   "devDependencies": {
     "@rails/actioncable": "^7.0.4-3",
     "@size-limit/preset-small-lib": "^8.2.4",
-    "@types/actioncable": "^5.2.7",
+    "@types/actioncable": "^5.2.11",
     "@types/rails__actioncable": "^6.1.6",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
