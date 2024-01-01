@@ -2190,10 +2190,10 @@
     "@tiptap/extension-strike" "^2.1.7"
     "@tiptap/extension-text" "^2.1.7"
 
-"@types/actioncable@^5.2.7":
-  version "5.2.7"
-  resolved "https://registry.yarnpkg.com/@types/actioncable/-/actioncable-5.2.7.tgz#b42de922ba32f1a46c863df1ed32807ab08dda80"
-  integrity sha512-HVpCvvE4Att0vSfCVNHf3gmCoqQPlySWIhH4THkG4r0hc0IcvRa0gIVyd9ekswMf3WiBsDc52OKnduIZQ7qcRw==
+"@types/actioncable@^5.2.11":
+  version "5.2.11"
+  resolved "https://registry.yarnpkg.com/@types/actioncable/-/actioncable-5.2.11.tgz#4b563cec68f00973dc0c5e2cc6c3810d6169a38b"
+  integrity sha512-aGzv5JS3razLvv4ZJW+wlDuNS5y1IFFVlm1EkZq3ZHs6txju7/2iee1e6sdK6DE4zsz8cIREs1K4BtfF5RMESQ==
 
 "@types/babel__core@^7.1.7":
   version "7.20.0"
