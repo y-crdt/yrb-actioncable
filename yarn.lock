@@ -6914,10 +6914,10 @@ prosemirror-gapcursor@^1.3.1, prosemirror-gapcursor@^1.3.2:
     prosemirror-state "^1.0.0"
     prosemirror-view "^1.0.0"
 
-prosemirror-history@^1.0.0, prosemirror-history@^1.3.0:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/prosemirror-history/-/prosemirror-history-1.3.1.tgz#d0dba9ed1cc2bce55a45ce9c7c8224e641f276b8"
-  integrity sha512-YMV/IWBZ+LZSfaNcBbPcaQUiAiJRYFyJW2aapuNzL8nhIRsI7fIO0ykJFSe802+mWeoTsVJ1jxvRWPYqaUqljQ==
+prosemirror-history@^1.0.0, prosemirror-history@^1.3.0, prosemirror-history@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/prosemirror-history/-/prosemirror-history-1.3.2.tgz#ce6ad7ab9db83e761aee716f3040d74738311b15"
+  integrity sha512-/zm0XoU/N/+u7i5zepjmZAEnpvjDtzoPWW6VmKptcAnPadN/SStsBjMImdCEbb3seiNTpveziPTIrXQbHLtU1g==
   dependencies:
     prosemirror-state "^1.2.2"
     prosemirror-transform "^1.0.0"
