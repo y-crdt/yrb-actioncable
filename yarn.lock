@@ -1872,12 +1872,10 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-collaboration-cursor/-/extension-collaboration-cursor-2.1.12.tgz#adebc3077bf27934b41a4186ba87223db39e0a1a"
   integrity sha512-1hxo8bJWOvNccU7+yQSeUNU/sXPMXJ645WdXU5bylD4q/Ph/7u3gFxPPLu+j8WiLisBbj31saPk/DaOukIFTVg==
 
-"@tiptap/extension-collaboration@^2.0.0-beta.213":
-  version "2.0.0-beta.213"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-collaboration/-/extension-collaboration-2.0.0-beta.213.tgz#2cd37046b658cfd4bc377394d1d82a78ad7862be"
-  integrity sha512-eKHbwDU0VVmb6cDb1C5AaiDy99xxbBC0Gw73XEHY5dQ2KlWuwOUvY4afSB+0WpUYgiDwUNSlqj1VOoECeG46zQ==
-  dependencies:
-    y-prosemirror "1.0.20"
+"@tiptap/extension-collaboration@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-collaboration/-/extension-collaboration-2.2.1.tgz#0dccd14c3541bc7ca20c93b83d007ddd1a1fe0c0"
+  integrity sha512-ZxEs6qTaKxVclU2wei3avX2YLcEyXWHiuoL9p5Q9fgha8Gx+WWmyhY6C+NDh94AK7EqaviP2SDgC25iX0RJmdw==
 
 "@tiptap/extension-document@^2.1.7":
   version "2.1.7"
@@ -8496,13 +8494,6 @@ xmlchars@^2.1.1:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
-
-y-prosemirror@1.0.20:
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/y-prosemirror/-/y-prosemirror-1.0.20.tgz#1832b5ab29852fc4607e9cf6b0c431e9caeed79e"
-  integrity sha512-LVMtu3qWo0emeYiP+0jgNcvZkqhzE/otOoro+87q0iVKxy/sMKuiJZnokfJdR4cn9qKx0Un5fIxXqbAlR2bFkA==
-  dependencies:
-    lib0 "^0.2.42"
 
 y-prosemirror@^1.2.1:
   version "1.2.1"
