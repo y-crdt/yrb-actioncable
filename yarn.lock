@@ -1837,10 +1837,10 @@
     "@size-limit/file" "11.0.1"
     size-limit "11.0.1"
 
-"@tiptap/core@^2.1.13", "@tiptap/core@^2.1.7":
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.1.13.tgz#e21f566e81688c826c6f26d2940886734189e193"
-  integrity sha512-cMC8bgTN63dj1Mv82iDeeLl6sa9kY0Pug8LSalxVEptRmyFVsVxGgu2/6Y3T+9aCYScxfS06EkA8SdzFMAwYTQ==
+"@tiptap/core@^2.1.7", "@tiptap/core@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.2.4.tgz#6f957678eb733e70b9282fb5098d284a77bd09a3"
+  integrity sha512-cRrI8IlLIhCE1hacBQzXIC8dsRvGq6a4lYWQK/BaHuZg21CG7szp3Vd8Ix+ra1f5v0xPOT+Hy+QFNQooRMKMCw==
 
 "@tiptap/extension-blockquote@^2.1.7":
   version "2.1.7"
