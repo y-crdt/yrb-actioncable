@@ -24,7 +24,7 @@
     "prosemirror-state": "^1.4.3",
     "prosemirror-transform": "^1.7.5",
     "prosemirror-view": "^1.32.3",
-    "y-prosemirror": "^1.2.2",
+    "y-prosemirror": "^1.2.3",
     "yjs": "^13.6.10"
   },
   "scripts": {
