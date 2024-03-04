@@ -10,7 +10,7 @@
     "@tiptap/extension-collaboration": "^2.2.1",
     "@tiptap/extension-collaboration-cursor": "^2.1.12",
     "@tiptap/pm": "^2.2.1",
-    "@tiptap/starter-kit": "^2.1.7",
+    "@tiptap/starter-kit": "^2.2.4",
     "@y-rb/actioncable": "*",
     "esbuild": "^0.18.11",
     "lib0": "^0.2.58",
