@@ -350,12 +350,12 @@
       <pre class="lines">
 
 
-52
-53
-54</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_decode_base64_to_uint8_array'>decode_base64_to_uint8_array</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span>
   <span class='const'>Base64</span><span class='period'>.</span><span class='id identifier rubyid_strict_decode64'>strict_decode64</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -412,13 +412,17 @@
 
 29
 30
-31</pre>
+31
+32
+33</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_read_uint8_array'>read_uint8_array</span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_view'>view</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Buffer.html" title="Y::Lib0::Buffer (module)">Buffer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create_uint8_array_view_from_buffer'><span class='object_link'><a href="Buffer.html#create_uint8_array_view_from_buffer-class_method" title="Y::Lib0::Buffer.create_uint8_array_view_from_buffer (method)">create_uint8_array_view_from_buffer</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='period'>.</span><span class='id identifier rubyid_arr'>arr</span><span class='comma'>,</span> <span class='id identifier rubyid_decoder'>decoder</span><span class='period'>.</span><span class='id identifier rubyid_pos'>pos</span> <span class='op'>+</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_decoder'>decoder</span><span class='period'>.</span><span class='id identifier rubyid_pos'>pos</span> <span class='op'>+=</span> <span class='id identifier rubyid_size'>size</span>
+  <span class='id identifier rubyid_view'>view</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -440,8 +444,6 @@
       <pre class="lines">
 
 
-37
-38
 39
 40
 41
@@ -453,10 +455,12 @@
 47
 48
 49
-50</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_read_var_uint'>read_var_uint</span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -492,12 +496,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/y/lib0/decoding.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_read_var_uint8_array'>read_var_uint8_array</span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_read_uint8_array'>read_uint8_array</span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='comma'>,</span> <span class='id identifier rubyid_read_var_uint'>read_var_uint</span><span class='lparen'>(</span><span class='id identifier rubyid_decoder'>decoder</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -512,7 +516,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Apr  2 07:33:56 2024 by
+  Generated on Fri Apr 12 11:14:19 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.1.4).
 </div>
