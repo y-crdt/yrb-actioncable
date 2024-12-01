@@ -1892,10 +1892,10 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-code/-/extension-code-2.6.6.tgz#587eb08d09684fecc1c0f4d755e8b37ea65ff461"
   integrity sha512-JrEFKsZiLvfvOFhOnnrpA0TzCuJjDeysfbMeuKUZNV4+DhYOL28d39H1++rEtJAX0LcbBU60oC5/PrlU9SpvRQ==
 
-"@tiptap/extension-collaboration-cursor@^2.5.8":
-  version "2.5.8"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-collaboration-cursor/-/extension-collaboration-cursor-2.5.8.tgz#0c9a1a2f9b6e2cd55f364b6bd3902628259bd22b"
-  integrity sha512-dLwwphpIEYhMAL2j1DPJwmqtCTa1Vg6Qk3VSpcQQ1Q/M9bKy/E0j4wyi87p9vaeG4oRPM4b/xGy++gRN2FNRcw==
+"@tiptap/extension-collaboration-cursor@^2.10.3":
+  version "2.10.3"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-collaboration-cursor/-/extension-collaboration-cursor-2.10.3.tgz#e0b193a07a508b9ccab0366dd04c8cff768eaa44"
+  integrity sha512-Jy2NnL1XEo5TvMruqZ16gIvOpoQxUHMD/WBk/hkF40nIk8RzzWaiF700jA9WEehyTbsFvNdyayLNiQ6xtdvTOg==
 
 "@tiptap/extension-collaboration@^2.5.8":
   version "2.5.8"
