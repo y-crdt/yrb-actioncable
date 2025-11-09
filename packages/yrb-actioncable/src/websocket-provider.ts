@@ -47,6 +47,12 @@ enum MessageType {
 
 type MessageHandlers = Record<MessageType, MessageHandler>;
 
+interface SubscriptionWithWhisper extends ActionCable.Channel {
+  channel: {
+    whisper(data: any): boolean;
+  };
+}
+
 const permissionDeniedHandler = (
   provider: WebsocketProvider,
   reason: string
@@ -184,7 +190,7 @@ export class WebsocketProvider {
       encoder,
       encodeAwarenessUpdate(this.awareness, changedClients)
     );
-    this.send(toUint8Array(encoder));
+    this.send(toUint8Array(encoder), { whisper: true });
   };
 
   get synced() {
@@ -209,9 +215,14 @@ export class WebsocketProvider {
     this.doc.off('update', this.updateHandler);
   }
 
-  private send(buffer: Uint8Array) {
+  private send(buffer: Uint8Array, { whisper = false }: { whisper?: boolean } = {}) {
     const update = encodeBinaryToBase64(buffer);
-    this.channel?.send({ update });
+
+    if (whisper && hasWhisper(this.channel)) {
+      this.channel.channel.whisper({ update });
+    } else {
+      this.channel?.send({ update });
+    }
 
     if (this.bcconnected) {
       publish(this.bcChannelName, buffer, this);
@@ -355,4 +366,15 @@ function encodeBinaryToBase64(bin: Uint8Array) {
 
 function decodeBase64ToBinary(update: string) {
   return Uint8Array.from(atob(update), c => c.charCodeAt(0));
+}
+
+function hasWhisper(channel: ActionCable.Channel | undefined): channel is SubscriptionWithWhisper {
+  return (
+    channel !== undefined &&
+    'channel' in channel &&
+    channel.channel !== null &&
+    typeof channel.channel === 'object' &&
+    'whisper' in channel.channel &&
+    typeof channel.channel.whisper === 'function'
+  );
 }
