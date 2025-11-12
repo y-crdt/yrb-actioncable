@@ -1,5 +1,11 @@
 # yrb-actioncable
 
+## 0.3.0
+
+### Minor Changes
+
+- Support for AnyCable's whisper feature
+
 ## 0.2.1
 
 ### Patch Changes
