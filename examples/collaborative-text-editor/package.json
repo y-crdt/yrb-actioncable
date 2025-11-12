@@ -25,7 +25,7 @@
     "prosemirror-transform": "^1.9.0",
     "prosemirror-view": "^1.37.1",
     "y-prosemirror": "^1.2.13",
-    "yjs": "^13.6.20"
+    "yjs": "^13.6.27"
   },
   "scripts": {
     "build:js": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
