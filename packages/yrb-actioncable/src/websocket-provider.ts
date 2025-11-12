@@ -219,7 +219,10 @@ export class WebsocketProvider {
     this.doc.off('update', this.updateHandler);
   }
 
-  private send(buffer: Uint8Array, { whisper = false }: { whisper?: boolean } = {}) {
+  private send(
+    buffer: Uint8Array,
+    { whisper = false }: { whisper?: boolean } = {}
+  ) {
     const update = encodeBinaryToBase64(buffer);
 
     if (whisper && hasWhisper(this.channel)) {
@@ -372,7 +375,9 @@ function decodeBase64ToBinary(update: string) {
   return Uint8Array.from(atob(update), c => c.charCodeAt(0));
 }
 
-function hasWhisper(channel: ActionCable.Channel | undefined): channel is ChannelWithWhisper {
+function hasWhisper(
+  channel: ActionCable.Channel | undefined
+): channel is ChannelWithWhisper {
   return (
     channel !== undefined &&
     'whisper' in channel &&
