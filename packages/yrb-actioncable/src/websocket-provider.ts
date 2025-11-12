@@ -47,10 +47,14 @@ enum MessageType {
 
 type MessageHandlers = Record<MessageType, MessageHandler>;
 
-interface SubscriptionWithWhisper extends ActionCable.Channel {
-  channel: {
-    whisper(data: any): boolean;
-  };
+// AnyCable is an ActionCable compatible websocket implementation, which offers a "whisper" feature
+// for publishing transient broadcasts between clients, without touching your Rails backend
+//   https://docs.anycable.io/rails/extensions?id=whispering
+// It was built with cursor position sharing in mind, and works great for awareness updates
+// Make sure to add `whisper: true` to your Rails channels when using this provider and AnyCable
+//   https://docs.anycable.io/edge/rails/extensions?id=whispering
+interface ChannelWithWhisper extends ActionCable.Channel {
+  whisper(data: any): boolean;
 }
 
 const permissionDeniedHandler = (
@@ -219,7 +223,7 @@ export class WebsocketProvider {
     const update = encodeBinaryToBase64(buffer);
 
     if (whisper && hasWhisper(this.channel)) {
-      this.channel.channel.whisper({ update });
+      this.channel.whisper({ update });
     } else {
       this.channel?.send({ update });
     }
@@ -368,13 +372,10 @@ function decodeBase64ToBinary(update: string) {
   return Uint8Array.from(atob(update), c => c.charCodeAt(0));
 }
 
-function hasWhisper(channel: ActionCable.Channel | undefined): channel is SubscriptionWithWhisper {
+function hasWhisper(channel: ActionCable.Channel | undefined): channel is ChannelWithWhisper {
   return (
     channel !== undefined &&
-    'channel' in channel &&
-    channel.channel !== null &&
-    typeof channel.channel === 'object' &&
-    'whisper' in channel.channel &&
-    typeof channel.channel.whisper === 'function'
+    'whisper' in channel &&
+    typeof channel.whisper === 'function'
   );
 }
